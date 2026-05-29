@@ -275,45 +275,146 @@
   cursor: not-allowed;
 }
 
-.messages {
+.messagesViewport {
   flex: 1;
   min-height: 0;
+  width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 20px;
-  padding-bottom: 200px;
-  /* Espacio extra para que el input fijo (hasta 3 líneas) no tape el último mensaje */
-  scroll-padding-bottom: 200px;
   scroll-behavior: auto;
   overscroll-behavior-y: auto;
   -webkit-overflow-scrolling: touch;
   touch-action: pan-y;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(97, 216, 191, 0.45) transparent;
+}
+
+.messagesViewport::-webkit-scrollbar {
+  width: 8px;
+}
+
+.messagesViewport::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 4px 0;
+}
+
+.messagesViewport::-webkit-scrollbar-thumb {
+  background-color: rgba(97, 216, 191, 0.35);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.messagesViewport::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(78, 203, 169, 0.65);
+}
+
+.messagesInner {
   display: flex;
   flex-direction: column;
   white-space: pre-wrap;
   max-width: 800px;
   width: 100%;
   margin: 0 auto;
+  padding: 20px;
+  padding-bottom: 200px;
+  scroll-padding-bottom: 200px;
   gap: 2px;
+  box-sizing: border-box;
+}
+
+.scrollToolbar {
+  position: fixed;
+  bottom: calc(24px + 76px);
+  left: var(--sidebar-width);
+  right: 0;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  z-index: 11;
+  pointer-events: none;
+}
+
+.scrollToolbar > * {
+  pointer-events: auto;
+}
+
+.autoScrollToggle,
+.autoScrollToggleOn,
+.jumpToBottom {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  border: 1px solid #e5e7eb;
+  background: rgba(255, 255, 255, 0.92);
+  color: #4b5563;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.autoScrollToggle:hover {
+  border-color: #61d8bf;
+  color: #0f766e;
+}
+
+.autoScrollToggleOn {
+  border-color: #61d8bf;
+  background: rgba(97, 216, 191, 0.12);
+  color: #0f766e;
+}
+
+.autoScrollDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #d1d5db;
+}
+
+.autoScrollToggleOn .autoScrollDot {
+  background: #61d8bf;
+  box-shadow: 0 0 0 3px rgba(97, 216, 191, 0.25);
+}
+
+.jumpToBottom {
+  color: #0f766e;
+  border-color: #bae6fd;
+  background: rgba(240, 253, 250, 0.95);
+}
+
+.jumpToBottom:hover {
+  background: #ecfdf5;
+  border-color: #61d8bf;
 }
 
 /* Contenedor de cada mensaje: ancho al contenido, no toda la pantalla */
-.messages > [data-role] {
+.messagesInner > [data-role] {
   width: fit-content;
   max-width: 85%;
   scroll-margin-top: 12px;
 }
-.messages > [data-role="user"] {
+.messagesInner > [data-role="user"] {
   align-self: flex-end;
 }
-.messages > [data-role="assistant"] {
+.messagesInner > [data-role="assistant"] {
   align-self: flex-start;
   max-width: min(100%, 720px);
 }
 
 /* Tablas y gráficos CORA ocupan ancho útil del chat */
-.messages > [data-role="assistant"]:has(table),
-.messages > [data-role="assistant"]:has(.my-5) {
+.messagesInner > [data-role="assistant"]:has(table),
+.messagesInner > [data-role="assistant"]:has(.my-5) {
   width: 100%;
   max-width: 100%;
 }
@@ -555,15 +656,20 @@
     height: 18px;
   }
 
-  .messages {
+  .messagesInner {
     padding: 15px;
     padding-bottom: 260px;
     scroll-padding-bottom: 260px;
-    /* Espacio para input multilínea sin tapar la respuesta */
+  }
+
+  .scrollToolbar {
+    left: 0;
+    bottom: calc(12px + 72px);
+    padding: 0 12px;
   }
 
   /* En móvil las burbujas no ocupan toda la pantalla: margen claro a los lados */
-  .messages > [data-role] {
+  .messagesInner > [data-role] {
     max-width: 82%;
   }
 
@@ -602,13 +708,13 @@
     height: 32px;
   }
 
-  .messages {
+  .messagesInner {
     padding: 12px;
     padding-bottom: 280px;
     scroll-padding-bottom: 280px;
   }
 
-  .messages > [data-role] {
+  .messagesInner > [data-role] {
     max-width: 80%;
   }
 

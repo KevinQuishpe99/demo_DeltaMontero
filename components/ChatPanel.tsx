@@ -17,6 +17,12 @@ type Role = "user" | "assistant";
 export type ChatMessage = { role: Role; content: string };
 
 const MAX_MESSAGES_TO_API = 24;
+const AUTO_SCROLL_STORAGE_KEY = "cora_auto_scroll";
+
+function readAutoScrollPref(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.localStorage.getItem(AUTO_SCROLL_STORAGE_KEY) === "1";
+}
 
 /** Quita estados intermedios del stream; la UI usa los tres puntos en su lugar. */
 function stripInterimStatus(text: string): string {
@@ -39,12 +45,17 @@ export function ChatPanel() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [autoScroll, setAutoScroll] = useState(false);
+  const [showJumpToBottom, setShowJumpToBottom] = useState(false);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-  /** Si el usuario subió el scroll, no forzar bajar hasta que vuelva al fondo. */
-  const stickToBottomRef = useRef(true);
+  const stickToBottomRef = useRef(false);
   const scrollRafRef = useRef<number | null>(null);
   const touchStartYRef = useRef(0);
+
+  useEffect(() => {
+    setAutoScroll(readAutoScrollPref());
+  }, []);
 
   const LINE_HEIGHT_PX = 24;
   const INPUT_MAX_LINES = 3;
@@ -63,6 +74,18 @@ export function ChatPanel() {
   const chatGenerationRef = useRef(0);
   const fetchAbortRef = useRef<AbortController | null>(null);
 
+  const scheduleScrollToBottom = useCallback(() => {
+    if (!stickToBottomRef.current) return;
+    if (scrollRafRef.current != null) return;
+    scrollRafRef.current = requestAnimationFrame(() => {
+      scrollRafRef.current = null;
+      const el = messagesContainerRef.current;
+      if (!el || !stickToBottomRef.current) return;
+      el.scrollTop = el.scrollHeight;
+      setShowJumpToBottom(false);
+    });
+  }, []);
+
   useEffect(() => {
     const onNew = () => {
       chatGenerationRef.current += 1;
@@ -72,6 +95,7 @@ export function ChatPanel() {
       setInput("");
       setError(null);
       setLoading(false);
+      setShowJumpToBottom(false);
       requestAnimationFrame(() => {
         const el = textareaRef.current;
         if (el) {
@@ -84,15 +108,27 @@ export function ChatPanel() {
     return () => window.removeEventListener("newChatStarted", onNew);
   }, []);
 
-  const scheduleScrollToBottom = useCallback(() => {
-    if (!stickToBottomRef.current) return;
-    if (scrollRafRef.current != null) return;
-    scrollRafRef.current = requestAnimationFrame(() => {
-      scrollRafRef.current = null;
-      const el = messagesContainerRef.current;
-      if (!el || !stickToBottomRef.current) return;
-      el.scrollTop = el.scrollHeight;
-    });
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(
+        AUTO_SCROLL_STORAGE_KEY,
+        autoScroll ? "1" : "0"
+      );
+    }
+    stickToBottomRef.current = autoScroll;
+    if (autoScroll) scheduleScrollToBottom();
+  }, [autoScroll, scheduleScrollToBottom]);
+
+  const jumpToBottom = useCallback(() => {
+    const el = messagesContainerRef.current;
+    if (!el) return;
+    el.scrollTop = el.scrollHeight;
+    setShowJumpToBottom(false);
+    if (autoScroll) stickToBottomRef.current = true;
+  }, [autoScroll]);
+
+  const toggleAutoScroll = useCallback(() => {
+    setAutoScroll((prev) => !prev);
   }, []);
 
   const hasMessages = messages.length > 0;
@@ -103,11 +139,17 @@ export function ChatPanel() {
 
     const syncPinned = () => {
       const distance = el.scrollHeight - el.scrollTop - el.clientHeight;
-      stickToBottomRef.current = distance < 48;
+      const atBottom = distance < 48;
+      setShowJumpToBottom(!atBottom);
+      if (autoScroll) {
+        stickToBottomRef.current = atBottom;
+      }
     };
 
     const unpin = () => {
+      if (!autoScroll) return;
       stickToBottomRef.current = false;
+      setShowJumpToBottom(true);
     };
 
     const onWheel = (e: WheelEvent) => {
@@ -133,7 +175,7 @@ export function ChatPanel() {
       el.removeEventListener("touchstart", onTouchStart);
       el.removeEventListener("touchmove", onTouchMove);
     };
-  }, [hasMessages]);
+  }, [hasMessages, autoScroll]);
 
   const lastAssistantContent =
     messages[messages.length - 1]?.role === "assistant"
@@ -144,8 +186,10 @@ export function ChatPanel() {
     loading && !visibleAnswerText(lastAssistantContent);
 
   useEffect(() => {
-    if (loading && stickToBottomRef.current) scheduleScrollToBottom();
-  }, [messages, loading, scheduleScrollToBottom]);
+    if (loading && autoScroll && stickToBottomRef.current) {
+      scheduleScrollToBottom();
+    }
+  }, [messages, loading, autoScroll, scheduleScrollToBottom]);
 
   useEffect(() => {
     syncTextareaHeight();
@@ -171,7 +215,7 @@ export function ChatPanel() {
     const history = [...messages, nextUser];
     setMessages([...history, { role: "assistant", content: "" }]);
     setLoading(true);
-    stickToBottomRef.current = true;
+    if (autoScroll) stickToBottomRef.current = true;
 
     fetchAbortRef.current?.abort();
     const ac = new AbortController();
@@ -286,39 +330,74 @@ export function ChatPanel() {
       )}
 
       {hasConversation && (
-        <div className={styles.messages} ref={messagesContainerRef}>
-          {messages.map((m, i) => (
-            <div key={i} data-role={m.role}>
-              {m.role === "user" ? (
-                <div className={styles.userMessage}>{m.content}</div>
-              ) : (
-                stripInterimStatus(m.content).trim() ? (
-                  <div className={styles.assistantMessage}>
-                    <StructuredBlocks
-                      content={stripInterimStatus(m.content)}
-                      tone="light"
-                      isStreaming={
-                        loading &&
-                        i === messages.length - 1 &&
-                        m.role === "assistant"
-                      }
-                    />
-                  </div>
-                ) : null
+        <>
+          <div
+            className={styles.messagesViewport}
+            ref={messagesContainerRef}
+          >
+            <div className={styles.messagesInner}>
+              {messages.map((m, i) => (
+                <div key={i} data-role={m.role}>
+                  {m.role === "user" ? (
+                    <div className={styles.userMessage}>{m.content}</div>
+                  ) : stripInterimStatus(m.content).trim() ? (
+                    <div className={styles.assistantMessage}>
+                      <StructuredBlocks
+                        content={stripInterimStatus(m.content)}
+                        tone="light"
+                        isStreaming={
+                          loading &&
+                          i === messages.length - 1 &&
+                          m.role === "assistant"
+                        }
+                      />
+                    </div>
+                  ) : null}
+                </div>
+              ))}
+              {showThinking && (
+                <div data-role="assistant">
+                  <ThinkingIndicator />
+                </div>
+              )}
+              {error && (
+                <div data-role="assistant">
+                  <div className={styles.assistantMessage}>{error}</div>
+                </div>
               )}
             </div>
-          ))}
-          {showThinking && (
-            <div data-role="assistant">
-              <ThinkingIndicator />
-            </div>
-          )}
-          {error && (
-            <div data-role="assistant">
-              <div className={styles.assistantMessage}>{error}</div>
-            </div>
-          )}
-        </div>
+          </div>
+
+          <div className={styles.scrollToolbar}>
+            <button
+              type="button"
+              className={
+                autoScroll
+                  ? styles.autoScrollToggleOn
+                  : styles.autoScrollToggle
+              }
+              onClick={toggleAutoScroll}
+              aria-pressed={autoScroll}
+              title={
+                autoScroll
+                  ? "Desactivar scroll automático mientras responde"
+                  : "Seguir la respuesta en vivo (scroll automático)"
+              }
+            >
+              <span className={styles.autoScrollDot} aria-hidden />
+              Scroll automático
+            </button>
+            {showJumpToBottom && (
+              <button
+                type="button"
+                className={styles.jumpToBottom}
+                onClick={jumpToBottom}
+              >
+                Ir al final ↓
+              </button>
+            )}
+          </div>
+        </>
       )}
 
       <form onSubmit={onSubmit} className={styles.inputForm}>
