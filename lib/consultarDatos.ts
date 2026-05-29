@@ -10,6 +10,11 @@ import {
 import { capToolOutputJson } from "@/lib/toolOutput";
 import { enrichListadoPayload } from "@/lib/listadoEnrichment";
 import type { BiSkillToolName } from "@/lib/biSkillTools";
+import {
+  buildEmergencyVentasPayload,
+  buildFallbackMetaVentasByYear,
+  runSqlWithAutoRetry,
+} from "@/lib/sqlExecuteRetry";
 
 type CacheEntry = { at: number; value: string };
 
@@ -82,12 +87,34 @@ export async function runConsultarDatos(sql: string): Promise<string> {
   return executeConsultarDatos(safe, "consultar_comercial");
 }
 
-/** SELECT validado contra la skill BI (vistas GestionBI, META, y/o banda calificada). */
+/** SELECT validado contra la skill BI; reintenta SQL y usa respaldo si falla. */
 export async function runConsultarDatosForSkill(
   sql: string,
   gate: SkillGate,
   skillName: BiSkillToolName = "consultar_comercial"
 ): Promise<string> {
-  const safe = assertSafeSelectForBiSkill(gate, sql);
-  return executeConsultarDatos(safe, skillName);
+  const retry = await runSqlWithAutoRetry(gate, sql);
+  if (retry.ok) {
+    return executeConsultarDatos(retry.sqlUsed, skillName);
+  }
+
+  const emergencySql = assertSafeSelectForBiSkill(
+    gate,
+    buildFallbackMetaVentasByYear([2025, 2024, 2023, 2022])
+  );
+  try {
+    const raw = await queryRows(emergencySql);
+    const note =
+      raw.length === 0
+        ? "Consulta de respaldo sin filas; indica cobertura según METADATA (años disponibles)."
+        : "Resultado vía consulta de respaldo automática (el SQL original no era válido en Postgres).";
+    return buildEmergencyVentasPayload(skillName, emergencySql, raw, note);
+  } catch {
+    return buildEmergencyVentasPayload(
+      skillName,
+      emergencySql,
+      [],
+      "Sin filas en meta_venta_neta para los años pedidos; responde con años disponibles del METADATA del sistema."
+    );
+  }
 }

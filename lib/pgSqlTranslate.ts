@@ -49,6 +49,14 @@ export function translateMssqlToPostgres(sql: string): string {
     "CAST(periodo AS VARCHAR(6))"
   );
 
+  s = s.replace(
+    /\bCONVERT\s*\(\s*VARCHAR\s*\(\s*\d+\s*\)\s*,\s*([^,)]+)(?:\s*,\s*\d+)?\s*\)/gi,
+    "CAST($1 AS VARCHAR)"
+  );
+  s = s.replace(/\bCONVERT\s*\(\s*DATE\s*,\s*([^)]+)\s*\)/gi, "CAST($1 AS DATE)");
+  s = s.replace(/\bLEN\s*\(/gi, "LENGTH(");
+  s = s.replace(/\bQUARTER\s*\(\s*([A-Za-z_][A-Za-z0-9_.]*)\s*\)/gi, "EXTRACT(QUARTER FROM $1)");
+
   const topMatch = /\bSELECT\s+TOP\s+(\d+)\b/i.exec(s);
   if (topMatch) {
     const n = topMatch[1];
