@@ -1,4 +1,5 @@
 import { BANDAVONI_ERP_TABLES } from "@/lib/bandavanoniDbCatalog";
+import { isPostgresDb } from "@/lib/dbEnv";
 
 const FORBIDDEN = [
   "INSERT ",
@@ -147,7 +148,7 @@ function assertErpRefs(trimmed: string, upper: string, gate: SkillGate): void {
   );
   if (allowedErp.size === 0) return;
 
-  if (!upper.includes("WITH (NOLOCK)")) {
+  if (!isPostgresDb() && !upper.includes("WITH (NOLOCK)")) {
     throw new Error(
       "Las tablas ERP requieren WITH (NOLOCK) en cada FROM/JOIN."
     );

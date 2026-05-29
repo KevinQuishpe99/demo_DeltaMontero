@@ -1,4 +1,4 @@
-import { getDB } from "@/lib/db";
+import { queryRows } from "@/lib/db";
 import {
   assertSafeSelectForBiSkill,
   type SkillGate,
@@ -53,7 +53,6 @@ export async function runExportRowsQuery(
 }> {
   const gate: SkillGate = BI_SKILL_GATES[skill];
   const base = assertSafeSelectForBiSkill(gate, sql);
-  const pool = await getDB();
 
   const chunked = options.chunked !== false;
   const chunk = Math.min(
@@ -73,8 +72,7 @@ export async function runExportRowsQuery(
   let chunks = 0;
 
   if (!usePaging) {
-    const result = await pool.request().query(base);
-    const raw = (result.recordset ?? []) as Record<string, unknown>[];
+    const raw = await queryRows(base);
     const truncated = raw.length > EXPORT_MAX_ROWS;
     const rows = truncated ? raw.slice(0, EXPORT_MAX_ROWS) : raw;
     return {
@@ -89,8 +87,7 @@ export async function runExportRowsQuery(
   while (all.length < EXPORT_MAX_ROWS) {
     const take = Math.min(chunk, EXPORT_MAX_ROWS - all.length);
     const paged = `${base} OFFSET ${offset} ROWS FETCH NEXT ${take} ROWS ONLY`;
-    const result = await pool.request().query(paged);
-    const batch = (result.recordset ?? []) as Record<string, unknown>[];
+    const batch = await queryRows(paged);
     chunks += 1;
     if (!batch.length) break;
     all.push(...batch);

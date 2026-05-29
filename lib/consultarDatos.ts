@@ -1,4 +1,4 @@
-import { getDB } from "@/lib/db";
+import { queryRows } from "@/lib/db";
 import {
   assertSafeSelect,
   assertSafeSelectForBiSkill,
@@ -34,9 +34,7 @@ async function executeConsultarDatos(
     return cached.value;
   }
 
-  const pool = await getDB();
-  const result = await pool.request().query(safeSql);
-  const raw = (result.recordset ?? []) as Record<string, unknown>[];
+  const raw = await queryRows(safeSql);
   const capped = limitRows(raw);
   const forModel = limitRowsForLLM(capped);
   const llmCap = getSqlAiMaxRowsForLlm();
