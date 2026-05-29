@@ -21,14 +21,18 @@ import { trimConversationForModel } from "@/lib/trimMessages";
 import { SYNC_WARNING_APPENDIX } from "@/lib/systemPrompt";
 import {
   extractRequestedDateRange,
+  extractRequestedYears,
   formatMetadataForSystemPrompt,
+  formatPartialYearCoverageNote,
   formatSinDatosPeriodoMessage,
   getGlobalFechaRange,
   getOrFetchMetadata,
   mesCalendarioSinDatosEnMeta,
   userAsksMesActualOrHoy,
+  yearsOutsideMetadataCoverage,
   V_METADATA_SISTEMA_QUERY,
 } from "@/lib/metadataSession";
+import { BI_RESPONSE_QUALITY_APPEND } from "@/lib/biResponseRules";
 import {
   AssistantOutputSanitizer,
   stripAssistantForbiddenPhrases,
@@ -518,18 +522,24 @@ export function createBiAgentReadableStream(options: {
           requested &&
           global.desde &&
           global.hasta &&
-          (requested.hasta < global.desde || requested.desde > global.hasta)
+          (requested.hasta < global.desde || requested.desde > global.hasta) &&
+          (askKind === "mes" || askKind === "dia")
         ) {
-          const kind =
-            askKind === "mes"
-              ? "mes_calendario"
-              : askKind === "dia"
-                ? "dia_calendario"
-                : "periodo_explicito";
+          const kind = askKind === "mes" ? "mes_calendario" : "dia_calendario";
           push(formatSinDatosPeriodoMessage(meta.rows, kind));
           controller.close();
           return;
         }
+
+        const requestedYears = extractRequestedYears(lastIncomingUserText);
+        const outsideYears = yearsOutsideMetadataCoverage(
+          meta.rows,
+          requestedYears
+        );
+        const partialYearNote =
+          outsideYears.length && !meta.metadataLoadFailed
+            ? formatPartialYearCoverageNote(meta.rows, outsideYears)
+            : "";
 
         const dataUpdateNote =
           meta.refreshed &&
@@ -540,8 +550,10 @@ export function createBiAgentReadableStream(options: {
 
         const basePrompt =
           buildBiAgentSystemPrompt(null, true) +
+          BI_RESPONSE_QUALITY_APPEND +
           (syncOk ? "" : SYNC_WARNING_APPENDIX);
-        const systemContent = basePrompt + metaBlock + dataUpdateNote;
+        const systemContent =
+          basePrompt + metaBlock + partialYearNote + dataUpdateNote;
 
         const system: ChatCompletionMessageParam = {
           role: "system",
@@ -592,7 +604,7 @@ export function createBiAgentReadableStream(options: {
         const maxIterations = envInt("BI_MAX_ITERATIONS", 1, 1, 12);
         const maxCompletionTokens = envInt(
           "BI_MAX_COMPLETION_TOKENS",
-          4096,
+          2048,
           1024,
           16384
         );

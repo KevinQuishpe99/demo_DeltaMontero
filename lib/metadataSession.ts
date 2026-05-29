@@ -165,6 +165,39 @@ export function extractRequestedDateRange(
   return null;
 }
 
+/** Años mencionados en el mensaje del usuario (ej. 2024 y 2025). */
+export function extractRequestedYears(text: string): number[] {
+  const matches = text.match(/\b(20\d{2})\b/g);
+  if (!matches) return [];
+  return Array.from(new Set(matches.map((y) => Number(y)))).sort(
+    (a, b) => a - b
+  );
+}
+
+/** Años pedidos que quedan fuera de ANIO_MIN/MAX en META. */
+export function yearsOutsideMetadataCoverage(
+  rows: SistemaMetadataRow[],
+  years: number[]
+): number[] {
+  if (!years.length) return [];
+  const row = rows.find((r) => r.MODULO?.toUpperCase().includes("META"));
+  const min = row?.ANIO_MINIMO;
+  const max = row?.ANIO_MAXIMO;
+  if (min == null || max == null) return [];
+  return years.filter((y) => y < min || y > max);
+}
+
+export function formatPartialYearCoverageNote(
+  rows: SistemaMetadataRow[],
+  outsideYears: number[]
+): string {
+  const row = rows.find((r) => r.MODULO?.toUpperCase().includes("META"));
+  const min = row?.ANIO_MINIMO ?? "—";
+  const max = row?.ANIO_MAXIMO ?? "—";
+  const list = outsideYears.join(", ");
+  return `\n[COBERTURA] El usuario pidió año(s) ${list}; en meta_venta_neta solo hay datos entre ${min} y ${max}. Ejecuta SQL con esos años (devolverá 0 donde no haya filas), reporta totales y variación %, incluye chart, y explica qué años sí tienen información.\n`;
+}
+
 export async function getOrFetchMetadata(sessionId: string): Promise<{
   rows: SistemaMetadataRow[];
   refreshed: boolean;

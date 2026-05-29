@@ -38,6 +38,16 @@ export function translateMssqlToPostgres(sql: string): string {
   );
 
   s = s.replace(/\bISNULL\s*\(/gi, "COALESCE(");
+  s = s.replace(/\bLTRIM\s*\(\s*RTRIM\s*\(/gi, "TRIM(");
+  s = s.replace(/\bRTRIM\s*\(\s*LTRIM\s*\(/gi, "TRIM(");
+
+  s = s.replace(/\bYEAR\s*\(\s*([A-Za-z_][A-Za-z0-9_.]*)\s*\)/gi, "EXTRACT(YEAR FROM $1)");
+  s = s.replace(/\bMONTH\s*\(\s*([A-Za-z_][A-Za-z0-9_.]*)\s*\)/gi, "EXTRACT(MONTH FROM $1)");
+
+  s = s.replace(
+    /\bCAST\s*\(\s*PERIODO\s+AS\s+VARCHAR\s*\(\s*6\s*\)/gi,
+    "CAST(periodo AS VARCHAR(6))"
+  );
 
   const topMatch = /\bSELECT\s+TOP\s+(\d+)\b/i.exec(s);
   if (topMatch) {

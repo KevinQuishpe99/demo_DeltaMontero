@@ -14,6 +14,14 @@ const ARTIFACT_PATTERNS: RegExp[] = [
   /Parece que hubo un problema de conexión[^\n]*/gi,
   /hubo un problema de conexión[^\n]*/gi,
   /problema de conexión al intentar acceder[^\n]*/gi,
+  /problema de conexi[oó]n interno[^\n]*/gi,
+  /Intentar[eé]\s+ejecutar la consulta[^\n]*/gi,
+  /Un momento,?\s*por favor[^\n.]*/gi,
+  /tuve\s+problemas[^\n]*/gi,
+  /No encontr[eé]\s+datos[^\n]*/gi,
+  /Esto puede deberse a que no hay registros[^\n]*/gi,
+  /Si deseas,?\s+puedo buscar[^\n]*/gi,
+  /Solo h[aá]zm[eé]lo saber[^\n.]*/gi,
 ];
 
 /** Limpia texto antes de guardarlo en historial o mostrarlo. */

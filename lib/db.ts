@@ -86,6 +86,19 @@ export async function getDB(): Promise<sql.ConnectionPool | pg.Pool> {
   return getMssqlPool();
 }
 
+/** Postgres devuelve alias en minúsculas; la app espera MAYÚSCULAS (META, export). */
+function normalizeRowKeys(
+  rows: Record<string, unknown>[]
+): Record<string, unknown>[] {
+  return rows.map((row) => {
+    const out: Record<string, unknown> = {};
+    for (const [k, v] of Object.entries(row)) {
+      out[k.toUpperCase()] = v;
+    }
+    return out;
+  });
+}
+
 /** Ejecuta SELECT y devuelve filas (traduce T-SQL → Postgres si aplica). */
 export async function queryRows(
   sqlText: string
@@ -94,7 +107,7 @@ export async function queryRows(
     const pool = await getPgPool();
     const pgSql = translateMssqlToPostgres(sqlText);
     const result = await pool.query(pgSql);
-    return result.rows as Record<string, unknown>[];
+    return normalizeRowKeys(result.rows as Record<string, unknown>[]);
   }
 
   const pool = await getMssqlPool();
