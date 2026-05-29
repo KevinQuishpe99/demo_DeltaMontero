@@ -1,0 +1,4 @@
+/* Estilos de ruta / (evita referencias huérfanas a page.css en dev en algunos entornos) */
+.pageRoot {
+  min-height: 100%;
+}

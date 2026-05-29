@@ -1,0 +1,8 @@
+# DELTAMONTERO / CORA IA (Next.js)
+
+Reglas de negocio, protocolo histórico vs tiempo real, skills y SQL seguro están centralizadas en:
+- lib/skillsIntelligenceProtocol.ts (árbol de decisión y comportamiento por skill)
+- lib/deltaMonteroManual.ts (manual + inyección en system prompt)
+- lib/sqlGuard.ts / lib/biSkillTools.ts (tablas y vistas permitidas por skill)
+
+No hardcodear host de SQL ni claves; usar variables de entorno (.env) y lib/db.ts.

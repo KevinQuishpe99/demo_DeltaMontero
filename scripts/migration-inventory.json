@@ -1,0 +1,6490 @@
+{
+  "generated_at": "2026-05-29T17:51:56.919Z",
+  "inventory": [
+    {
+      "table": "meta_venta_neta",
+      "pg_name": "meta_venta_neta",
+      "rows": 113126,
+      "columns": 110,
+      "col_defs": [
+        {
+          "name": "idregistro",
+          "type": "numeric(18,0)",
+          "nullable": false
+        },
+        {
+          "name": "periodo",
+          "type": "varchar(6)",
+          "nullable": false
+        },
+        {
+          "name": "local",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "bodega",
+          "type": "numeric(18,0)",
+          "nullable": true
+        },
+        {
+          "name": "nombre_bodega",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "bien_servicio",
+          "type": "varchar(1)",
+          "nullable": false
+        },
+        {
+          "name": "codigo",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "descripcion",
+          "type": "varchar(255)",
+          "nullable": true
+        },
+        {
+          "name": "movimiento",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "serie",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "numero",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "fecha",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "trimestre",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "semana",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "dia",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "diay",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "dias",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "hora",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "cantidad",
+          "type": "numeric(18,6)",
+          "nullable": true
+        },
+        {
+          "name": "costou",
+          "type": "numeric(18,6)",
+          "nullable": true
+        },
+        {
+          "name": "costo",
+          "type": "numeric(18,6)",
+          "nullable": true
+        },
+        {
+          "name": "precio",
+          "type": "numeric(18,6)",
+          "nullable": true
+        },
+        {
+          "name": "iva",
+          "type": "numeric(18,6)",
+          "nullable": true
+        },
+        {
+          "name": "dcto_subtotal_neto",
+          "type": "numeric(18,2)",
+          "nullable": true
+        },
+        {
+          "name": "dcto_neto",
+          "type": "numeric(18,2)",
+          "nullable": true
+        },
+        {
+          "name": "dcto_iva_neto",
+          "type": "numeric(18,2)",
+          "nullable": true
+        },
+        {
+          "name": "venta_neta",
+          "type": "numeric(18,2)",
+          "nullable": true
+        },
+        {
+          "name": "utilidad",
+          "type": "numeric(18,2)",
+          "nullable": true
+        },
+        {
+          "name": "vendedor",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "ruc",
+          "type": "varchar(15)",
+          "nullable": true
+        },
+        {
+          "name": "nombre_completo",
+          "type": "varchar(255)",
+          "nullable": true
+        },
+        {
+          "name": "alterno",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "alterno1",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "alterno2",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "cod_clasificacion1",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "cod_clasificacion2",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "cod_clasificacion3",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "cod_clasificacion4",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "cod_clasificacion5",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "cod_clasificacion6",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "cod_clasificacion7",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "cod_clasificacion8",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "cod_clasificacion9",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "cod_clasificacion10",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "clasificacion1",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clasificacion2",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clasificacion3",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clasificacion4",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clasificacion5",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clasificacion6",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clasificacion7",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clasificacion8",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clasificacion9",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clasificacion10",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "cod_clas_cliente1",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "cod_clas_cliente2",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "cod_clas_cliente3",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "cod_clas_cliente4",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "cod_clas_cliente5",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "cod_clas_cliente6",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "cod_clas_cliente7",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "cod_clas_cliente8",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "cod_clas_cliente9",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "cod_clas_cliente10",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "clas_cliente1",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clas_cliente2",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clas_cliente3",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clas_cliente4",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clas_cliente5",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clas_cliente6",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clas_cliente7",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clas_cliente8",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clas_cliente9",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clas_cliente10",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clas_factura1",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clas_factura2",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clas_factura3",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clas_factura4",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clas_factura5",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clas_factura6",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clas_factura7",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clas_factura8",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clas_factura9",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "clas_factura10",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "ctas_ventas",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "ctas_costo",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "ctas_desc",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "ctas_desc1",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "ctas_desc2",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "ctas_devolucion",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "ctas_dev_dcto",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "ctas_dev_dcto1",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "ctas_dev_dcto2",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "provincia",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "canton",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "parroquia",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "alter_desc",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "alter_desc1",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "alter_desc2",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "factor_c",
+          "type": "numeric(18,6)",
+          "nullable": true
+        },
+        {
+          "name": "factor_cantidad",
+          "type": "numeric(18,6)",
+          "nullable": true
+        },
+        {
+          "name": "control_fec_creacion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "control_spid",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ice_neto",
+          "type": "numeric(18,2)",
+          "nullable": true
+        },
+        {
+          "name": "base_ice",
+          "type": "numeric(18,2)",
+          "nullable": true
+        },
+        {
+          "name": "porcentaje_ice",
+          "type": "numeric(18,2)",
+          "nullable": true
+        },
+        {
+          "name": "anio",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "proyecto",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "concepto",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "vendedor2",
+          "type": "varchar(50)",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "table": "FAC_FACTURAS",
+      "pg_name": "fac_facturas",
+      "rows": 26021,
+      "columns": 215,
+      "col_defs": [
+        {
+          "name": "ffg_serie",
+          "type": "numeric(10,0)",
+          "nullable": false
+        },
+        {
+          "name": "ffg_numero",
+          "type": "numeric(10,0)",
+          "nullable": false
+        },
+        {
+          "name": "fve_codigo",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fcl_codigo",
+          "type": "numeric(15,0)",
+          "nullable": true
+        },
+        {
+          "name": "fac_guia_numero",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_fecha",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "ffg_cartera",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_pedido",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_anulado",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_impresa",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_subtotal",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_descuento",
+          "type": "numeric(5,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_valdesc",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_valdesc1",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_valdesc2",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_iva0",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_iva",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_viva",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_total",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_forma",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_efectivo",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_cheque",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_tarjeta",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_credito",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_vence",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "ffg_fec_anulacion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "ffg_caja",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_anticipos",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_num_tarjeta",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_codigo_tarjeta",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_ajuste",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_reportado",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_num_trj_2",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_cod_trj_2",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_val_trj_2",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_num_trj_3",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_num_trj_4",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_num_trj_5",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_cod_trj_3",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_cod_trj_4",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_cod_trj_5",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_val_trj_3",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_val_trj_4",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_val_trj_5",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_servicios",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_propinas",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_lote_1",
+          "type": "varchar(15)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_lote_2",
+          "type": "varchar(15)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_lote_3",
+          "type": "varchar(15)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_lote_4",
+          "type": "varchar(15)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_lote_5",
+          "type": "varchar(15)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_usuario_emite",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_usuario_anula",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_sucursal",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffg_iva_bienes",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_iva_servicios",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_base_retencion",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_baseimponible",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_baseimpgrav",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_basenoiva",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_ruc_ci",
+          "type": "varchar(15)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_nombre_alterno",
+          "type": "varchar(150)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_carrera",
+          "type": "varchar(150)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_nivel",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_academico",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_dep_num",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_dep_val",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_dep_banco",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_dep_fecha",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "ffg_clas_dcto",
+          "type": "varchar(2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_iniciatraslado",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "ffg_fintraslado",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "ffg_puntoemision",
+          "type": "varchar(300)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_puntopartida",
+          "type": "varchar(300)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_transportista",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_idtransportista",
+          "type": "varchar(13)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_municipio",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_paciente",
+          "type": "varchar(1000)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_lote",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_fecha_venc_producto",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "ffg_medico",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_imprenta3xmil",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_ivapresuntivo",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_otrovalor",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_referencia",
+          "type": "varchar(500)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_retencionfte",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_retencioniva",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_diferencia_iva",
+          "type": "numeric(12,6)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_ret_num",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_ret_autor",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_ret_fecha",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "ffg_ret_caduca",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "ffg_despachado",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_serie_pedido",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_local",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffg_cod_trj_bmt",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_num_trj_bmt",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_val_trj_bmt",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_lote_bmt",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_retencionfteserv",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_retencionivaserv",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_cod_trj_iata",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_num_trj_iata",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_val_trj_iata",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_lote_iata",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_autoriza_comp1",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_autoriza_comp2",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_autoriza_comp3",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_autoriza_comp4",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_autoriza_comp5",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_autoriza_comp_bmt",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_autoriza_comp_iata",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_usuario_autoriza",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_pago_comision",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_pago_fecha",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "ffg_pago_usuario",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_sgn_registro",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_numcica",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_autorizacion",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_codnumerico",
+          "type": "varchar(23)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_clamovim",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_codigo_comprobante",
+          "type": "varchar(2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_claveacceso",
+          "type": "varchar(49)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_claveaccesoctg",
+          "type": "varchar(49)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_baseafiva",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_baseafiva0",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_exportacion",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_baseexportbien",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_baseexportserv",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_xml",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_parterel",
+          "type": "varchar(2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_correo_enviado",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_serie_prof",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_numero_prof",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_numero_pedido",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_serie_hoja",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_numero_hoja",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "fve_codigo2",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffg_contrato",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_cuota",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffg_observaciones",
+          "type": "varchar(300)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_formapago_efectivo",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffg_formapago_cheque",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffg_formapago_credito",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffg_formapago_tarjeta1",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffg_formapago_tarjeta2",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffg_formapago_tarjeta3",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffg_formapago_tarjeta4",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffg_formapago_tarjeta5",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffg_venceimpresion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "ffg_reg_auto",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffg_valservicio",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_num_ficha",
+          "type": "numeric(20,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_modelo_ficha",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_tipoges_compromiso",
+          "type": "varchar(250)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_numges_compromiso",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffg_numges_registro",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffg_ciudad",
+          "type": "varchar(150)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_origen_carga",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffg_origen_carga_usuario",
+          "type": "varchar(35)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_origen_carga_fecha",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "ffg_tipocliente",
+          "type": "varchar(150)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_peso_bruto",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_tara",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_peso_neto",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_acidez",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_humedad",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_impureza",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_serie_ticket",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffg_numero_ticket",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_bono",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_serie_ref",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_numero_ref",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_valor_bono",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_serie_ne",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffg_numero_ne",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_presupuesto",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_producto",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_marca",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_ordencompra",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_nombre_autoriza",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_inserta_cs",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffg_entrega",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffg_contabilizacion",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_incoterm",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_partidasugerida",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_pesoneto",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_pesobruto",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_guia_numero",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_cliente_orig",
+          "type": "numeric(15,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_anulado_trj",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_nc_serie_trj",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_nc_numero_trj",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_cartera_vencida",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_placa",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_valor_tjt_regalo",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_dinrecibido",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_pedido_ecommerce",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_fecha_entrega",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "id",
+          "type": "bigint",
+          "nullable": false
+        },
+        {
+          "name": "control_fec_creacion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "control_spid",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffg_reingreso",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_valordemanda",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_vice",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_ordenremision",
+          "type": "varchar(15)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_hojaentrada",
+          "type": "varchar(8)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_apropiacion",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_acuerdo_pago",
+          "type": "varchar(300)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_libera_puntos",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_numfac_segurob",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_usodatos_autoriza",
+          "type": "varchar(2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_usodatos_usuario",
+          "type": "varchar(35)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_transferencia",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffg_usodatos_fecha",
+          "type": "timestamp",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "table": "FAC_FACTURA_DETALLE",
+      "pg_name": "fac_factura_detalle",
+      "rows": 109617,
+      "columns": 87,
+      "col_defs": [
+        {
+          "name": "ffg_serie",
+          "type": "numeric(10,0)",
+          "nullable": false
+        },
+        {
+          "name": "ffg_numero",
+          "type": "numeric(10,0)",
+          "nullable": false
+        },
+        {
+          "name": "tbs_codigo",
+          "type": "varchar(20)",
+          "nullable": false
+        },
+        {
+          "name": "ffd_registro",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "ffd_factura_cartera",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_cantidad",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_precio",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_descuento",
+          "type": "numeric(5,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_descuento1",
+          "type": "numeric(5,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_descuento2",
+          "type": "numeric(5,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_iva",
+          "type": "numeric(5,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_bodega",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffd_total",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_adicional",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_dcto_neto",
+          "type": "numeric(20,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_iva_neto",
+          "type": "numeric(20,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_precio_neto",
+          "type": "numeric(20,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_dcto_neto1",
+          "type": "numeric(20,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_dcto_neto2",
+          "type": "numeric(20,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_proyecto",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_concepto",
+          "type": "varchar(5)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_descripcion",
+          "type": "varchar(3000)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_aplicapuntos",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_puntos",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_cajas",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_piezas",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_num_serie",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_recargo",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_desc_aut_por",
+          "type": "varchar(150)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_num_tarjeta",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_aut_compra",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_dcto_caja",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_fre_serie",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_fre_numero",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_fre_desc",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_fecha_cartera",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "ffd_prov_cartera",
+          "type": "varchar(80)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_ruc_cartera",
+          "type": "varchar(14)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_cod_presupuesto",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_des_presupuesto",
+          "type": "varchar(40)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_lote_prod",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_por_servicio",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_servicio",
+          "type": "numeric(12,6)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_servicio_neto",
+          "type": "numeric(20,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_proveedor",
+          "type": "varchar(300)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_ruc",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_factura",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_pedido",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_serie_ne",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffd_numero_ne",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_reg_pedido",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffd_referencia",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_cod_prmocion",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffd_clamovim",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_registro_pedido",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_serie_opt",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffd_numero_opt",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_registro_dopt",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffd_descuento_autorizado",
+          "type": "numeric(5,2)",
+          "nullable": true
+        },
+        {
+          "name": "id",
+          "type": "bigint",
+          "nullable": false
+        },
+        {
+          "name": "control_fec_creacion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "control_spid",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffd_ice_neto",
+          "type": "numeric(20,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_cod_alterno",
+          "type": "varchar(150)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_req_prof",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffd_serie_prof",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffd_numero_prof",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_opcion_prof",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffd_item_prof",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffd_ice",
+          "type": "numeric(5,2)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_base_ice",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_seguro_bici",
+          "type": "varchar(2)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_segb_beneficiario",
+          "type": "varchar(30)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_segb_cedulabenef",
+          "type": "varchar(13)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_segb_externo",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_cod_menu",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_reg_mesa",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffd_reg_auto",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffg_descripcion_adicional",
+          "type": "varchar(300)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_registro_insumo",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffd_reg_insumo",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffd_tipo_despacho",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_momento_despacho",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_fecha_entrega",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "ffd_dot_id",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "ffd_codigo_alterno",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "ffd_descripcion_alterno",
+          "type": "varchar(300)",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "table": "FAC_CLIENTES",
+      "pg_name": "fac_clientes",
+      "rows": 2714,
+      "columns": 149,
+      "col_defs": [
+        {
+          "name": "fcl_codigo",
+          "type": "numeric(15,0)",
+          "nullable": false
+        },
+        {
+          "name": "fcl_nombre",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_apellido1",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_apellido2",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_nombre_completo",
+          "type": "varchar(150)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_razon",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_ruc",
+          "type": "varchar(14)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_direccion",
+          "type": "varchar(250)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_telefono",
+          "type": "varchar(250)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_mail",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_gerente",
+          "type": "varchar(40)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_contacto",
+          "type": "varchar(40)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_factura",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_deuda",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_cobrar",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_anticipo",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_ventas",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_costo_ventas",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_descuentos",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_devolucion",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_credito",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fcl_descuento",
+          "type": "numeric(5,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_limite",
+          "type": "numeric(14,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_observaciones",
+          "type": "varchar(500)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_tipo1",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_telefono1",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_tipo2",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_telefono2",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_tipo3",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_telefono3",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_tipo4",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_telefono4",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_tipo5",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_telefono5",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_consumidor",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_anticipos",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_cuenta_anticipo",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_dato1",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_dato2",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_dato3",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_dato4",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_direccion2",
+          "type": "varchar(500)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_imprime",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_cumple",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "fcl_titulo",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_tipo_dir1",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_tipo_dir2",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_ciudad",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_pais",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_bodega",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fcl_vendedor",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fcl_activo",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_tipoid",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_puntos",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_clas1",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_clas2",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_clas3",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_clas4",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_clas5",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_clas6",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_clas7",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_clas8",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_clas9",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_clas10",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_puntosinicial",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_tipo_cliente",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fecha_ingreso",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "inicio_membresia",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "fin_membresia",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "fcl_genero",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_aplicatrans",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_codigofacturar",
+          "type": "numeric(15,0)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_fee_nacional",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_fee_internacional",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_fee_intercontinental",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_cuota1",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fcl_cuota2",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fcl_cuota3",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fcl_cuota4",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fcl_cuota5",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fcl_cuota6",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fcl_dias_bloqueo",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fcl_aplicadebito",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_numtarjetadebito",
+          "type": "varchar(30)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_caducatarjeta",
+          "type": "varchar(6)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_sts_dcto_efectivo",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_sts_dcto_cheque",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_sts_dcto_tarjeta",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_sts_dcto_especial",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_sts_dcto_tope_caja",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_dcto_cata",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_dcto_catb",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_dcto_catc",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_sujeto_credito",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_provincia",
+          "type": "varchar(2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_canton",
+          "type": "varchar(2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_parroquia",
+          "type": "varchar(7)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_sexo",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_estado_civil",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_origen_ingresos",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_dcto_fijo",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_rise",
+          "type": "varchar(40)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_limite_original",
+          "type": "numeric(14,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_numcontribuyenteesp",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_obligadocontabilidad",
+          "type": "varchar(2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_mail2",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_mail3",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_mail4",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_mail5",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_activadcto",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_diferidos",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_devolucion_diferidos",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_parterel",
+          "type": "varchar(2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_vendedor2",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fcl_creditodiasimpresion",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fcl_id_gestorpm",
+          "type": "varchar(30)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_venceproximomes",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_flujo",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_alias",
+          "type": "varchar(30)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_facturarcredito",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_password",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_ruta",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_status",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_mail6",
+          "type": "varchar(150)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_mail7",
+          "type": "varchar(150)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_mail8",
+          "type": "varchar(150)",
+          "nullable": true
+        },
+        {
+          "name": "id",
+          "type": "bigint",
+          "nullable": false
+        },
+        {
+          "name": "control_fec_creacion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "control_spid",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fcl_burocredito",
+          "type": "varchar(3)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_calcula_vencimiento",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_operadora",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_estatus_puntos",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_activacion_puntos",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "fcl_caducidad_puntos",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "fcl_codigo_inscripcion",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_vigencia_estado",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "fcl_status_equifax",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_cxc_envio",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_cxc_frecuencia",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_desccuento_15",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_desccuento_0",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_desccuento_30",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_desccuento_90",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_desccuento_60",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_desccuento_120",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_usodatos_autoriza",
+          "type": "varchar(2)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_usodatos_usuario",
+          "type": "varchar(35)",
+          "nullable": true
+        },
+        {
+          "name": "fcl_usodatos_fecha",
+          "type": "timestamp",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "table": "FAC_VEND",
+      "pg_name": "fac_vend",
+      "rows": 6,
+      "columns": 16,
+      "col_defs": [
+        {
+          "name": "fve_codigo",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "fve_nombre",
+          "type": "varchar(40)",
+          "nullable": true
+        },
+        {
+          "name": "fve_direccion",
+          "type": "varchar(40)",
+          "nullable": true
+        },
+        {
+          "name": "fve_telefono",
+          "type": "varchar(15)",
+          "nullable": true
+        },
+        {
+          "name": "fve_ruc",
+          "type": "varchar(14)",
+          "nullable": true
+        },
+        {
+          "name": "fve_activo",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fve_cod_socio",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fve_credito",
+          "type": "numeric(14,2)",
+          "nullable": true
+        },
+        {
+          "name": "fve_clave",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fve_admin",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fve_clave_admin",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fve_iniciales",
+          "type": "varchar(5)",
+          "nullable": true
+        },
+        {
+          "name": "id",
+          "type": "bigint",
+          "nullable": false
+        },
+        {
+          "name": "control_fec_creacion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "control_spid",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fve_email",
+          "type": "varchar(150)",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "table": "FAC_CARTERA",
+      "pg_name": "fac_cartera",
+      "rows": 24906,
+      "columns": 31,
+      "col_defs": [
+        {
+          "name": "fcc_cuenta",
+          "type": "numeric(10,0)",
+          "nullable": false
+        },
+        {
+          "name": "fve_codigo",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fcl_codigo",
+          "type": "numeric(15,0)",
+          "nullable": true
+        },
+        {
+          "name": "fcc_tipo",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcc_serie",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "fcc_factura",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "fcc_fecha",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "fcc_vend",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "fcc_valor",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcc_pagado",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcc_sucursal",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fcc_local",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fcc_retencion",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcc_garantizado",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcc_status",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcc_gar_id_documento",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "fcc_gar_banco",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fcc_gar_cuenta",
+          "type": "varchar(15)",
+          "nullable": true
+        },
+        {
+          "name": "fcc_gar_cheque",
+          "type": "varchar(15)",
+          "nullable": true
+        },
+        {
+          "name": "fcc_ret_fuente",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcc_ret_iva",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcc_pago_comision",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fcc_comision_usuario",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fcc_comision_fecha",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "fcc_valor_original",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "fcc_usuario_edita",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "fcc_fecha_edita",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "fcc_edita_cuotas",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "id",
+          "type": "bigint",
+          "nullable": false
+        },
+        {
+          "name": "control_fec_creacion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "control_spid",
+          "type": "integer",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "table": "FAC_CIERRE_CAJA",
+      "pg_name": "fac_cierre_caja",
+      "rows": 8012,
+      "columns": 56,
+      "col_defs": [
+        {
+          "name": "cica_numero",
+          "type": "numeric(10,0)",
+          "nullable": false
+        },
+        {
+          "name": "cica_fecha",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "cica_inicial",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "cica_final",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "cica_num_fac_emitida",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "cica_num_fac_anuladas",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "cica_num_cre_emitido",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "cica_num_cre_anulado",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "cica_num_ing_emitidos",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "cica_num_ing_anula",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "cica_fac_efectivo",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "cica_fac_cheque",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "cica_fac_tarjeta",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "cica_fac_credito",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "cica_fac_cruces",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "cica_abo_efectivo",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "cica_abo_cheque",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "cica_abo_tarjeta",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "cica_abo_otro",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "cica_abo_retenciones",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "cica_cerrado",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "cica_observaciones",
+          "type": "varchar(500)",
+          "nullable": true
+        },
+        {
+          "name": "cica_serie_factura",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "cica_serie_nota",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "cica_serie_comp",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "cica_fac_retenciones",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "cica_local",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "cica_serie_retenciones",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "cica_fac_devolucion",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "cica_estado_ccc",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "cica_capturado_tesoreria",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "cica_pax",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "cica_mesas_fac",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "cica_mesas_sinfac",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "cica_mesas",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "cica_gastos_consumos",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "cica_gastos_consumos_cheque",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "cica_abo_transferencia",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "cica_num_nd_emitida",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "cica_num_nd_anuladas",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "cica_serie_debito",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "cica_nd_efectivo",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "cica_nd_cheque",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "cica_nd_tarjeta",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "cica_nd_credito",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "cica_nd_cruces",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "cica_local_numero",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "cica_transferido",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "cica_fac_tjt_regalo",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "id",
+          "type": "bigint",
+          "nullable": false
+        },
+        {
+          "name": "control_fec_creacion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "control_spid",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "cica_ajusteanticipo",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "cica_fac_transferencia",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "cica_fac_deuna",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "cica_abo_deuna",
+          "type": "numeric(10,2)",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "table": "FAC_RETENCIONES_SRI",
+      "pg_name": "fac_retenciones_sri",
+      "rows": 12089,
+      "columns": 37,
+      "col_defs": [
+        {
+          "name": "frs_secuencial",
+          "type": "numeric(10,0)",
+          "nullable": false
+        },
+        {
+          "name": "frs_numero",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "frs_ruc_emisor",
+          "type": "varchar(13)",
+          "nullable": true
+        },
+        {
+          "name": "frs_razon_emisor",
+          "type": "varchar(150)",
+          "nullable": true
+        },
+        {
+          "name": "frs_fecha_emision",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "frs_fecha_autorizacion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "frs_tipo_emsion",
+          "type": "varchar(15)",
+          "nullable": true
+        },
+        {
+          "name": "frs_identificacion_receptor",
+          "type": "varchar(13)",
+          "nullable": true
+        },
+        {
+          "name": "frs_clave_acceso",
+          "type": "varchar(49)",
+          "nullable": true
+        },
+        {
+          "name": "frs_autorizacion",
+          "type": "varchar(49)",
+          "nullable": true
+        },
+        {
+          "name": "frs_estado",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "frs_usuario",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "frs_fecha",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "id",
+          "type": "bigint",
+          "nullable": false
+        },
+        {
+          "name": "control_fec_creacion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "control_spid",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "frs_codigo",
+          "type": "varchar(5)",
+          "nullable": true
+        },
+        {
+          "name": "frs_base_imponible",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "frs_porcentaje",
+          "type": "numeric(6,2)",
+          "nullable": true
+        },
+        {
+          "name": "frs_valor",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "frs_codigo_sustento",
+          "type": "varchar(2)",
+          "nullable": true
+        },
+        {
+          "name": "frs_numero_sustento",
+          "type": "varchar(17)",
+          "nullable": true
+        },
+        {
+          "name": "frs_fecha_sustento",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "frs_path_archivo",
+          "type": "varchar(260)",
+          "nullable": true
+        },
+        {
+          "name": "fsr_vendedor",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fsr_tipo_porcentaje",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fsr_cod_cliente",
+          "type": "numeric(15,0)",
+          "nullable": true
+        },
+        {
+          "name": "fsr_item",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fsr_serie_fact",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fsr_numero_fact",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "fsr_serie_ing",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fsr_numero_ing",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "fsr_codigo_sri",
+          "type": "varchar(5)",
+          "nullable": true
+        },
+        {
+          "name": "fsr_procesar",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fsr_anulado",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fsr_anulado_por",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fsr_anulado_fecha",
+          "type": "timestamp",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "table": "FAC_COMPRAS",
+      "pg_name": "fac_compras",
+      "rows": 197,
+      "columns": 34,
+      "col_defs": [
+        {
+          "name": "regcom_serie",
+          "type": "numeric(10,0)",
+          "nullable": false
+        },
+        {
+          "name": "regcom_numero",
+          "type": "numeric(10,0)",
+          "nullable": false
+        },
+        {
+          "name": "regcom_fecha",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "regcom_proveedor",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "regcom_factura",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "regcom_fecha_factura",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "regcom_sumam",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "regcom_descuentos",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "regcom_subtotal",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "regcom_subtotal0",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "regcom_subtotaliva",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "regcom_iva",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "regcom_total",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "regcom_bienes",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "regcom_servicios",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "regcom_realizado",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "regcom_revisado",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "regcom_autorizado",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "regcom_estado",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "regcom_motivo",
+          "type": "varchar(250)",
+          "nullable": true
+        },
+        {
+          "name": "regcom_fechaanula",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "regcom_anuladopor",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "regcom_diferencias",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "regcom_cartera",
+          "type": "numeric(15,0)",
+          "nullable": true
+        },
+        {
+          "name": "regcom_fecha_cartera",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "regcom_bodega",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "regcom_usuariocierre",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "regcom_fechacierre",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "regcom_numero_nc",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "regcom_subtotal_nc",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "id",
+          "type": "bigint",
+          "nullable": false
+        },
+        {
+          "name": "control_fec_creacion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "control_spid",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "regcom_condiferencias",
+          "type": "varchar(1)",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "table": "FAC_COMPRA",
+      "pg_name": "fac_compra",
+      "rows": 623,
+      "columns": 52,
+      "col_defs": [
+        {
+          "name": "comp_serie",
+          "type": "numeric(10,0)",
+          "nullable": false
+        },
+        {
+          "name": "comp_numero",
+          "type": "numeric(10,0)",
+          "nullable": false
+        },
+        {
+          "name": "comp_usuario_reg",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "comp_fecha",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "comp_proveedor",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "comp_proforma",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "comp_observaciones",
+          "type": "varchar(500)",
+          "nullable": true
+        },
+        {
+          "name": "comp_subtotal",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "comp_descuento",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "comp_iva0",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "comp_iva12",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "comp_total",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "comp_realizado",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "comp_aprobado",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "comp_fecha_reg",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "comp_codicion_pago",
+          "type": "varchar(300)",
+          "nullable": true
+        },
+        {
+          "name": "comp_entrega",
+          "type": "varchar(40)",
+          "nullable": true
+        },
+        {
+          "name": "comp_mail",
+          "type": "varchar(150)",
+          "nullable": true
+        },
+        {
+          "name": "comp_ciudad",
+          "type": "varchar(40)",
+          "nullable": true
+        },
+        {
+          "name": "comp_atencion",
+          "type": "varchar(40)",
+          "nullable": true
+        },
+        {
+          "name": "comp_fec_embarque",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "comp_fec_puerto",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "comp_fec_bodega",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "comp_status",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "comp_bodega",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "comp_ingreso",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "comp_anulado",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "comp_fecha_anul",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "comp_motivo_anul",
+          "type": "varchar(1000)",
+          "nullable": true
+        },
+        {
+          "name": "comp_usuario_anul",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "comp_pedido_serie",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "comp_pedido_numero",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "comp_fecha_aprueba",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "comp_usuario_confirma",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "comp_fecha_confirma",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "comp_fecha_entrega",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "comp_tipo",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "comp_serie_prof",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "comp_numero_prof",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "id",
+          "type": "bigint",
+          "nullable": false
+        },
+        {
+          "name": "control_fec_creacion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "control_spid",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "comp_serie_factura",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "comp_numero_factura",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "comp_pedido_proveedor",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "comp_referencia_proveedor",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "comp_pedido_clase_proveedor",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "comp_fecha_factura",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "comp_texto_factura",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "comp_motivo_finaliza",
+          "type": "varchar(500)",
+          "nullable": true
+        },
+        {
+          "name": "comp_usuario_finaliza",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "comp_fecha_finaliza",
+          "type": "timestamp",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "table": "FAC_COMPRA_DETALLE",
+      "pg_name": "fac_compra_detalle",
+      "rows": 6785,
+      "columns": 60,
+      "col_defs": [
+        {
+          "name": "comp_serie",
+          "type": "numeric(10,0)",
+          "nullable": false
+        },
+        {
+          "name": "comp_numero",
+          "type": "numeric(10,0)",
+          "nullable": false
+        },
+        {
+          "name": "deco_item",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "deco_codigo",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "deco_descripcion",
+          "type": "varchar(255)",
+          "nullable": true
+        },
+        {
+          "name": "deco_cantidad",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "deco_precio",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "deco_descuento",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "deco_iva",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "deco_estado",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "deco_serie_fac",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "deco_numero_fac",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "deco_registro_fac",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "deco_boleto",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "deco_fec_embarque",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "deco_fec_puerto",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "deco_fec_bodega",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "deco_status",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "deco_bodega",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "deco_ingreso",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "deco_bl",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "deco_cajas",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "deco_precio1",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "deco_precio2",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "deco_precio3",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "deco_precio4",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "deco_precio5",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "deco_medida",
+          "type": "varchar(5)",
+          "nullable": true
+        },
+        {
+          "name": "deco_bodega_inicial",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "deco_referencia",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "deco_mxcaja",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "deco_opcion_prof",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "deco_item_prof",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "deco_bodega_stock",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "deco_stock",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "id",
+          "type": "bigint",
+          "nullable": false
+        },
+        {
+          "name": "control_fec_creacion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "control_spid",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "deco_reservas",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "deco_costo_reserva",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "deco_num_abono",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "deco_fecha_abono",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "deco_costo_abono",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "deco_fecha_reserva",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "deco_req_despacho",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "deco_reg_insumo",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "deco_observacion",
+          "type": "varchar(300)",
+          "nullable": true
+        },
+        {
+          "name": "deco_despachado",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "deco_entregado",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "deco_facturado",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "deco_fecha_despachado",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "deco_fecha_entregado",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "deco_fecha_facturado",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "deco_registro_det_factura",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "deco_precio_factura",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "deco_descuento_factura",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "deco_iva_factura",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "deco_total_factura",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "deco_factura_proveedor",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "deco_fecha_factura_proveedor",
+          "type": "timestamp",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "table": "FAC_DET_PAGOS_PROVEEDOR",
+      "pg_name": "fac_det_pagos_proveedor",
+      "rows": 0,
+      "columns": 8,
+      "col_defs": [
+        {
+          "name": "fltc_numero",
+          "type": "numeric(10,0)",
+          "nullable": false
+        },
+        {
+          "name": "fdpp_registro",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "clm_codigo",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_codigo",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "fdpp_valor",
+          "type": "numeric(12,6)",
+          "nullable": true
+        },
+        {
+          "name": "id",
+          "type": "bigint",
+          "nullable": false
+        },
+        {
+          "name": "control_fec_creacion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "control_spid",
+          "type": "integer",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "table": "FAC_CHE_PROVEEDORES",
+      "pg_name": "fac_che_proveedores",
+      "rows": 0,
+      "columns": 12,
+      "col_defs": [
+        {
+          "name": "tpr_codigo",
+          "type": "numeric(10,0)",
+          "nullable": false
+        },
+        {
+          "name": "hpr_registro",
+          "type": "numeric(10,0)",
+          "nullable": false
+        },
+        {
+          "name": "fbt_codigo",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "hpr_cuenta",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "hpr_cheque",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "hpr_fecha",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "hpr_cobrar",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "hpr_valor",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "hpr_estado",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "id",
+          "type": "bigint",
+          "nullable": false
+        },
+        {
+          "name": "control_fec_creacion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "control_spid",
+          "type": "integer",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "table": "FAC_STOCK",
+      "pg_name": "fac_stock",
+      "rows": 239849,
+      "columns": 33,
+      "col_defs": [
+        {
+          "name": "tbs_codigo",
+          "type": "varchar(20)",
+          "nullable": false
+        },
+        {
+          "name": "stk_bodega",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "stk_incial",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "stk_costo",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "stk_actual",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "stk_costo_actual",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "stk_cuenta",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "stk_costo_vtas",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "stk_ventas",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "stk_devoluciones",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "stk_descuento",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "stk_descuento1",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "stk_descuento2",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "stk_dcto_dvlt",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "stk_dcto_dvlt1",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "stk_dcto_dvlt2",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "stk_inventario",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "stk_maximo",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "stk_minimo",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "stk_compra",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "stk_pro_cantidad",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "stk_pro_costo",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "stk_inventarios",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "stk_fecha_inventario",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "id",
+          "type": "bigint",
+          "nullable": false
+        },
+        {
+          "name": "control_fec_creacion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "control_spid",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "stk_percha1",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "stk_percha2",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "stk_cta_ice",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "stk_percha3",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "stk_percha4",
+          "type": "varchar(25)",
+          "nullable": true
+        },
+        {
+          "name": "stk_percha5",
+          "type": "varchar(25)",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "table": "FAC_BIEN_SERV",
+      "pg_name": "fac_bien_serv",
+      "rows": 3351,
+      "columns": 179,
+      "col_defs": [
+        {
+          "name": "tbs_codigo",
+          "type": "varchar(20)",
+          "nullable": false
+        },
+        {
+          "name": "unme_codigo",
+          "type": "varchar(5)",
+          "nullable": true
+        },
+        {
+          "name": "prim_codigo",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_tipo",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_descripcion",
+          "type": "varchar(255)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_descripcion2",
+          "type": "varchar(255)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_saldo_inicial",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_costo_inicial",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_saldo_actual",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_costo_actual",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_precio1",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_precio2",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_precio3",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_precio4",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_precio5",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_ventas",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_descuento",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_descuento1",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_descuento2",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_devoluciones",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_costo_ventas",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_dcto_dvlt",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_dcto_dvlt1",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_dcto_dvlt2",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_unidades",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_etiqueta",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_cantidad",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_impresora",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_iva",
+          "type": "numeric(5,2)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_costo_aproximado",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_alterno",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_alterno2",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_alterno1",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_conversion",
+          "type": "numeric(20,10)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_objetoiva",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_orden",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_activo",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_unidades1",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_dolares1",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_ly_unidades",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_ly_dolares",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_unidades2",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_unidades3",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_unidades4",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_unidades5",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_unidades6",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_unidades7",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_unidades8",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_unidades9",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_unidades10",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_unidades11",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_unidades12",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_dolares2",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_dolares3",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_dolares4",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_dolares5",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_dolares6",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_dolares7",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_dolares8",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_dolares9",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_dolares10",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_dolares11",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meta_dolares12",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_clasificacion1",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_clasificacion2",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_puntos",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_clas1",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_clas2",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_clas3",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_clas4",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_clas5",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_clas6",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_clas7",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_clas8",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_clas9",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_clas10",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_formula_terminado",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_formula_cantidad",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_formula_bodega",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_bodega_factura",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_cajas",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_piezas",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_dcto_tarjeta",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_precio_factor",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_inventarios",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_serial",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_costo_promedio",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_porcentaje_promedio",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_membresia",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_codigo_membresia",
+          "type": "numeric(6,0)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_tiempo_estandar",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_dcto_tope_caja",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_categoria_dcto",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_activa_promocion",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_diferido",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_num_meses",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_diferidos",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_devolucion_diferidos",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_activofijo",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_tipo_descripcion",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_param_precio1",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_param_precio2",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_param_precio3",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_param_precio4",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_param_precio5",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_a_desc_efectivo",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_a_desc_tarjeta",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_a_desc_credito",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_a_desc_credito_lp",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_b_desc_efectivo",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_b_desc_tarjeta",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_b_desc_credito",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_b_desc_credito_lp",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_c_desc_efectivo",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_c_desc_tarjeta",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_c_desc_credito",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_c_desc_credito_lp",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_principio_activo",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_concentracion",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_forma_farmaceutica",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_presentacion",
+          "type": "varchar(300)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_fijacion_percio",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_registro_sanitario",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_procedencia",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_registra_lote",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_tipo_med",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_local",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_servicio",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_variedad",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_medidas_peso",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_medidas_largo",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_medidas_ancho",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_medidas_altura",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_garantia_detalle",
+          "type": "varchar(250)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_garantia_dias",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_formula_origen",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_web",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_terminado",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_barras1",
+          "type": "varchar(30)",
+          "nullable": true
+        },
+        {
+          "name": "id",
+          "type": "bigint",
+          "nullable": false
+        },
+        {
+          "name": "control_fec_creacion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "control_spid",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_aplica_ice",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_ice_tarifa",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_ice_codigo",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_ice_clasifica",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_ice_marca",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_ice_presentacion",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_ice_capacidad",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_ice_unidad",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_ice_pais",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_ice_grado_alcohol",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_ice_gramos_azucar",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_cta_ice",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_producto_mantenimiento",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_dcto_precio1",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_dcto_precio2",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_dcto_precio3",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_dcto_precio4",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_dcto_precio5",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_asigna_auto",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_tipo_asigna_auto",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_meses_activacion",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_supplier_leadtime",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_supplier_minimumorder",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_supplier_multipleorder",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_store_multipleorder",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_store_minimuorder",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_periodicity",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "tbs_control_factura",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_codigosri_construccion",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_servicio_arriendo",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_control_costo",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_control_tipo",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_control_fecha",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "tbs_conversion_hp",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_codigo_hp",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_oper_conversion_hp",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "tbs_cantidad_unme_compra",
+          "type": "numeric(20,6)",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "table": "FAC_LOCALES",
+      "pg_name": "fac_locales",
+      "rows": 3,
+      "columns": 31,
+      "col_defs": [
+        {
+          "name": "loc_numero",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "loc_nombre",
+          "type": "varchar(300)",
+          "nullable": true
+        },
+        {
+          "name": "loc_direccion",
+          "type": "varchar(1000)",
+          "nullable": true
+        },
+        {
+          "name": "loc_telefono",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "loc_ciudad",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "loc_observacion",
+          "type": "varchar(3000)",
+          "nullable": true
+        },
+        {
+          "name": "loc_formato_factura",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "loc_formato_nc",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "loc_establecimiento",
+          "type": "varchar(3)",
+          "nullable": true
+        },
+        {
+          "name": "loc_items_factura",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "loc_items_nc",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "loc_servidor",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "loc_usuario",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "loc_clave",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "loc_base",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "oc_formato_gure",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "loc_bodega",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "loc_cover",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "loc_cover2",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "loc_cover3",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "loc_peso1",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "loc_peso2",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "loc_mesa_inicio",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "loc_clasificacion",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "loc_imp_prefactura",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "loc_correo",
+          "type": "varchar(30)",
+          "nullable": true
+        },
+        {
+          "name": "id",
+          "type": "bigint",
+          "nullable": false
+        },
+        {
+          "name": "control_fec_creacion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "control_spid",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "loc_codigo",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "loc_region",
+          "type": "varchar(25)",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "table": "FAC_MOVIMIENTOS",
+      "pg_name": "fac_movimientos",
+      "rows": 398172,
+      "columns": 97,
+      "col_defs": [
+        {
+          "name": "tbs_codigo",
+          "type": "varchar(20)",
+          "nullable": false
+        },
+        {
+          "name": "stk_bodega",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "fmo_tipo",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "fmo_numero",
+          "type": "numeric(10,0)",
+          "nullable": false
+        },
+        {
+          "name": "fmo_item",
+          "type": "numeric(10,0)",
+          "nullable": false
+        },
+        {
+          "name": "clm_codigo",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_serie",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_fecha",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "fmo_cantidad",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_costo",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_descuento",
+          "type": "numeric(5,2)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_descuento1",
+          "type": "numeric(5,2)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_descuento2",
+          "type": "numeric(5,2)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_precio",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_iva",
+          "type": "numeric(5,2)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_conta",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_saldo",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_prom",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_dcto_neto",
+          "type": "numeric(20,2)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_dcto_neto1",
+          "type": "numeric(20,2)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_dcto_neto2",
+          "type": "numeric(20,2)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_iva_neto",
+          "type": "numeric(20,2)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_precio_neto",
+          "type": "numeric(20,2)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_estandar",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_proyecto",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_concepto",
+          "type": "varchar(5)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_diferencia",
+          "type": "numeric(20,2)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_porciento",
+          "type": "numeric(10,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_combo",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_cmb_cantidad",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_cmb_precio",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_cmb_dcto",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_cmb_dcto1",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_cmb_dcto2",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_cmb_iva",
+          "type": "numeric(10,2)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_cmb_precio_neto",
+          "type": "numeric(20,2)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_cmb_dcto_neto",
+          "type": "numeric(20,2)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_cmb_iva_neto",
+          "type": "numeric(20,2)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_cmb_valida",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_cajas",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_piezas",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_lote",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_sts_lote",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_op_numero",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_op_serie",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_dpch_serie",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_dpch_numero",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_num_serie",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_observacion",
+          "type": "varchar(3000)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_costo_promedio",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_porcentaje_promedio",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_recargo",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_local",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fmo_fre_serie",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_fre_numero",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_lote_prod",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_tipo_transaccion",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fmo_fecha_original",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "fmo_costo_standard",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_unidades_standard",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_descripcion",
+          "type": "varchar(3000)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_referencia",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_serie_opt",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fmo_numero_opt",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_registro_dopt",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fmo_mxcajas",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_pxcajas",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_serie_prof",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fmo_numero_prof",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "control_fec_creacion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "control_spid",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fmo_ice_neto",
+          "type": "numeric(20,2)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_opcion_prof",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fmo_item_prof",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fmo_ice",
+          "type": "numeric(5,2)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_base_ice",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_costo_manual",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_cod_menu",
+          "type": "varchar(10)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_reg_mesa",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fmo_registro_insumo",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fmo_req_despacho",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fmo_reg_auto",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fmo_codigo_proveedor",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_item_compra",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fmo_costo_oc",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_despacho_bodega",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_registro_det_factura",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fmo_despacho_precio",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_despacho_descuento",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_despacho_iva",
+          "type": "numeric(20,6)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_oc_serie",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fmo_oc_numero",
+          "type": "numeric(10,0)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_oc_anulado",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_oc_fecha_anul",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "fmo_oc_item",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "fmo_tipo_despacho",
+          "type": "varchar(1)",
+          "nullable": true
+        },
+        {
+          "name": "fmo_reg_secuencial",
+          "type": "bigint",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "table": "BCO",
+      "pg_name": "bco",
+      "rows": 2,
+      "columns": 15,
+      "col_defs": [
+        {
+          "name": "bco_codigo",
+          "type": "varchar(15)",
+          "nullable": false
+        },
+        {
+          "name": "gct_codigo",
+          "type": "varchar(2)",
+          "nullable": true
+        },
+        {
+          "name": "codcta",
+          "type": "varchar(20)",
+          "nullable": true
+        },
+        {
+          "name": "bco_cuenta",
+          "type": "varchar(35)",
+          "nullable": true
+        },
+        {
+          "name": "bco_saldo",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "bco_egresos",
+          "type": "varchar(4)",
+          "nullable": true
+        },
+        {
+          "name": "bco_ingresos",
+          "type": "varchar(4)",
+          "nullable": true
+        },
+        {
+          "name": "bco_anula",
+          "type": "varchar(4)",
+          "nullable": true
+        },
+        {
+          "name": "bco_debitos",
+          "type": "varchar(4)",
+          "nullable": true
+        },
+        {
+          "name": "bco_creditos",
+          "type": "varchar(4)",
+          "nullable": true
+        },
+        {
+          "name": "bco_codigo_modtesoreria",
+          "type": "varchar(15)",
+          "nullable": true
+        },
+        {
+          "name": "id",
+          "type": "bigint",
+          "nullable": false
+        },
+        {
+          "name": "control_fec_creacion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "control_spid",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "bco_aplica_ecommerce",
+          "type": "varchar(1)",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "table": "TES_FLUJO",
+      "pg_name": "tes_flujo",
+      "rows": 0,
+      "columns": 8,
+      "col_defs": [
+        {
+          "name": "dfl_cuenta",
+          "type": "varchar(20)",
+          "nullable": false
+        },
+        {
+          "name": "flj_registro",
+          "type": "numeric(10,0)",
+          "nullable": false
+        },
+        {
+          "name": "flj_fecha",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "flj_detalle",
+          "type": "varchar(250)",
+          "nullable": true
+        },
+        {
+          "name": "flj_valor",
+          "type": "numeric(12,2)",
+          "nullable": true
+        },
+        {
+          "name": "id",
+          "type": "bigint",
+          "nullable": false
+        },
+        {
+          "name": "control_fec_creacion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "control_spid",
+          "type": "integer",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "table": "TES_CAJA",
+      "pg_name": "tes_caja",
+      "rows": 0,
+      "columns": 35,
+      "col_defs": [
+        {
+          "name": "dfl_cuenta",
+          "type": "varchar(20)",
+          "nullable": false
+        },
+        {
+          "name": "cja_registro",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "valor_01",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_02",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_03",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_04",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_05",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_06",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_07",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_08",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_09",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_10",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_11",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_12",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_13",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_14",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_15",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_16",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_17",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_18",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_19",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_20",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_21",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_22",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_23",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_24",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_25",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_26",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_27",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_28",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_29",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "valor_30",
+          "type": "numeric(15,2)",
+          "nullable": true
+        },
+        {
+          "name": "id",
+          "type": "bigint",
+          "nullable": false
+        },
+        {
+          "name": "control_fec_creacion",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "control_spid",
+          "type": "integer",
+          "nullable": true
+        }
+      ]
+    }
+  ]
+}

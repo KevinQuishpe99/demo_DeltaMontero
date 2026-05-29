@@ -1,0 +1,79 @@
+server=localhost db=GestionBI table=[GestionBI].[dbo].[META_VENTA_NETA]
+periodo=202401
+
+Q1 sample:
+[
+  {
+    "NOMBRE_COMPLETO": "JUNTA DE BENEFICENCIA DE GUAYAQUIL",
+    "venta_2024": 169437.69,
+    "venta_2025": 248011.74
+  },
+  {
+    "NOMBRE_COMPLETO": "HOSPITAL DE ESPECIALIDADES CARLOS ANDRADE MARIN",
+    "venta_2024": 130815.75,
+    "venta_2025": 82153.39
+  },
+  {
+    "NOMBRE_COMPLETO": "INNOVACION FASMED S.A.",
+    "venta_2024": 100248.81,
+    "venta_2025": 60935.69
+  },
+  {
+    "NOMBRE_COMPLETO": "AF ABASTECEDORA DE INSUMOS MEDICOS IMPORTACION Y EXPORTACION ABASMEIMEX SA",
+    "venta_2024": 76265.63,
+    "venta_2025": 83015.69
+  },
+  {
+    "NOMBRE_COMPLETO": "-",
+    "venta_2024": 151480.06,
+    "venta_2025": 0
+  }
+]
+
+Q2 sample:
+[
+  {
+    "NOMBRE_COMPLETO": "HOSPITAL DE ESPECIALIDADES CARLOS ANDRADE MARIN",
+    "porcentaje": 21.1504
+  },
+  {
+    "NOMBRE_COMPLETO": "JUNTA DE BENEFICENCIA DE GUAYAQUIL",
+    "porcentaje": 8.3481
+  },
+  {
+    "NOMBRE_COMPLETO": "AF ABASTECEDORA DE INSUMOS MEDICOS IMPORTACION Y EXPORTACION ABASMEIMEX SA",
+    "porcentaje": 6.9923
+  },
+  {
+    "NOMBRE_COMPLETO": "PAUTA CORDOVA JORGE ENRIQUE",
+    "porcentaje": 5.1843
+  },
+  {
+    "NOMBRE_COMPLETO": "HOSPITAL DE ESPECIALIDADES JOSE CARRASCO ARTEAGA",
+    "porcentaje": 4.6333
+  }
+]
+
+Q3 sample:
+[
+  {
+    "NOMBRE_COMPLETO": "AF ABASTECEDORA DE INSUMOS MEDICOS IMPORTACION Y EXPORTACION ABASMEIMEX SA",
+    "margen_pct": 48.9108
+  },
+  {
+    "NOMBRE_COMPLETO": "AGUILAR CARMEN",
+    "margen_pct": 62.1212
+  },
+  {
+    "NOMBRE_COMPLETO": "ALVE MEDICAL ALVEMED CIA. LTDA.",
+    "margen_pct": 58.9615
+  },
+  {
+    "NOMBRE_COMPLETO": "ARCINIEGA ESPINOZA JIMMY",
+    "margen_pct": 74.303
+  },
+  {
+    "NOMBRE_COMPLETO": "ARCOS FUEL DIANA MARICELA",
+    "margen_pct": 39.5365
+  }
+]

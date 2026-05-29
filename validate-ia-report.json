@@ -1,0 +1,192 @@
+{
+  "summary": {
+    "total": 20,
+    "pass": 14,
+    "fail": 5,
+    "noRef": 0,
+    "other": 1
+  },
+  "seed": 99,
+  "results": [
+    {
+      "id": "A06",
+      "question": "¿Ventas por vendedor o ejecutivo comercial?",
+      "status": "PASS",
+      "detail": "≈ 547765.07 (ref 547765.07)",
+      "expected": 547765.07,
+      "refSql": "SELECT TOP 1 VENDEDOR, SUM(VENTA_NETA) AS v FROM dbo.meta_venta_neta WITH (NOLOCK) WHERE ANIO=2025 GROUP BY VENDEDOR ORDER BY v DESC",
+      "aiSnippet": "Aquí tienes el detalle de las ventas y facturación por vendedor durante el año 2025:\n\n### Total de Ventas por Vendedor\nEncontré un total de 5 resultados.\n\n1. VENDEDOR: OFICINA - Total Ventas: **$547,765.07**\n2. VENDEDOR: ASESOR GYE 1 - Total Ventas: **$308,712.80**\n3. VENDEDOR: ASESOR UIO 1 - Total Ventas: **$245,064.10**\n4. VENDEDOR: ASESOR UIO 2 - Total Ventas: **$170,481.53**\n5. VENDEDOR: ASESO"
+    },
+    {
+      "id": "F02",
+      "question": "¿Stock por bodega o ubicación?",
+      "status": "FAIL",
+      "detail": "IA no devolvió cifras",
+      "expected": 60,
+      "refSql": "SELECT COUNT(DISTINCT STK_BODEGA) AS v FROM dbo.FAC_STOCK WITH (NOLOCK) WHERE STK_ACTUAL > 0",
+      "aiSnippet": "¡Hola! Soy **CORA IA**, tu asistente digital de DELTAMONTERO. Estoy lista para ayudarte con cualquier consulta sobre ventas, cartera, inventario, bancos y más. ¿Qué necesitas saber?"
+    },
+    {
+      "id": "B03",
+      "question": "¿Productos con margen negativo?",
+      "status": "PASS",
+      "detail": "≈ 19 (ref 19)",
+      "expected": 19,
+      "refSql": "SELECT COUNT(*) AS v FROM (SELECT CODIGO FROM dbo.meta_venta_neta WITH (NOLOCK) WHERE ANIO=2025 GROUP BY CODIGO HAVING SUM(UTILIDAD)<0) x",
+      "aiSnippet": "Encontré un total de 104 productos con margen negativo. Aquí te muestro 60 resultados en pantalla:\n\n1. **CODIGO:** DEV001  \n   **DESCRIPCION:** DEVOLUCION  \n   **TOTAL_VENTA:** -276502.69  \n   **TOTAL_UTILIDAD:** -276502.69  \n   **MARGEN_PC:** 1.00  \n\n2. **CODIGO:** DESCT001  \n   **DESCRIPCION:** DESCUENTO EN VENTAS  \n   **TOTAL_VENTA:** -11593.15  \n   **TOTAL_UTILIDAD:** -11593.15  \n   **MARGEN_P"
+    },
+    {
+      "id": "D01",
+      "question": "¿Cuentas por cobrar totales?",
+      "status": "PASS",
+      "detail": "≈ 497499.27 (ref 497499.27)",
+      "expected": 497499.27,
+      "refSql": "SELECT SUM(FCC_VALOR - FCC_PAGADO) AS v FROM dbo.FAC_CARTERA WITH (NOLOCK) WHERE (FCC_VALOR - FCC_PAGADO) > 0",
+      "aiSnippet": "Las cuentas por cobrar totales ascienden a **$497,499.27**."
+    },
+    {
+      "id": "A01",
+      "question": "¿Cuáles son las ventas totales del mes actual?",
+      "status": "PASS",
+      "detail": "≈ 114921.26 (ref 114921.26)",
+      "expected": 114921.26,
+      "refSql": "SELECT SUM(VENTA_NETA) AS v FROM dbo.meta_venta_neta WITH (NOLOCK) WHERE CAST(PERIODO AS VARCHAR(6))='202508'",
+      "aiSnippet": "Las ventas totales del mes actual (mayo 2025) son **$114,921.26**."
+    },
+    {
+      "id": "F03",
+      "question": "¿Inventario total valorizado al costo?",
+      "status": "PASS",
+      "detail": "≈ 0 (ref 0)",
+      "expected": 0,
+      "refSql": "SELECT SUM(ISNULL(STK_ACTUAL,0)*ISNULL(STK_COSTO_ACTUAL,0)) AS v FROM dbo.FAC_STOCK WITH (NOLOCK) WHERE STK_ACTUAL > 0",
+      "aiSnippet": "El total valorizado del inventario al costo es **0 USD**. Esto puede indicar que no hay existencias registradas o que los costos no han sido cargados correctamente en el sistema. \n\nSi necesitas hacer un análisis más detallado o específico sobre el inventario, por favor házmelo saber."
+    },
+    {
+      "id": "A02",
+      "question": "¿Cómo se comparan las ventas de este mes vs el mismo mes del año anterior?",
+      "status": "PASS",
+      "detail": "Multi-columna OK: {\"mes_actual\":114921.26,\"mismo_mes_anio_ant\":165815.75}",
+      "expected": null,
+      "refSql": "SELECT SUM(CASE WHEN CAST(PERIODO AS VARCHAR(6))='202508' THEN VENTA_NETA ELSE 0 END) AS mes_actual,\n      SUM(CASE WHEN CAST(PERIODO AS VARCHAR(6))='202408' THEN VENTA_NETA ELSE 0 END) AS mismo_mes_anio_ant\n      FROM dbo.meta_venta_neta WITH (NOLOCK)",
+      "aiSnippet": "Las ventas del mes de agosto de 2025 fueron **$114,921.26**, mientras que en agosto de 2024 se reportaron **$165,815.75**. Esto representa una disminución en las ventas de **$50,894.49** en comparación con el mismo mes del año anterior.\n\nSi deseas más detalles o alguna otra información, ¡házmelo saber!"
+    },
+    {
+      "id": "A04",
+      "question": "¿Ventas por línea de producto en el período seleccionado?",
+      "status": "FAIL",
+      "detail": "más cercano 45463.44 vs esperado 689086.87 (Δ 93.4%)",
+      "expected": 689086.87,
+      "refSql": "SELECT TOP 1 CLASIFICACION1, SUM(VENTA_NETA) AS v FROM dbo.meta_venta_neta WITH (NOLOCK) WHERE ANIO=2025 GROUP BY CLASIFICACION1 ORDER BY v DESC",
+      "aiSnippet": "Encontré un total de 11 resultados. Aquí te muestro los detalles de las ventas por línea de producto en el período seleccionado:\n\n1. **CHINA**: VENTAS - **$45,463.44**, UTILIDAD - **$26,442.75**, MARGEN - **58.16%**\n2. **FRANCIA**: VENTAS - **$34,985.91**, UTILIDAD - **$27,408.30**, MARGEN - **78.34%**\n3. **MEXICO**: VENTAS - **$17,292.56**, UTILIDAD - **$8,703.57**, MARGEN - **50.33%**\n4. **COLOM"
+    },
+    {
+      "id": "A10",
+      "question": "¿Cuánto representa cada cliente en el total de ventas (%)?",
+      "status": "PASS",
+      "detail": "≈ 21 (ref 21.150476)",
+      "expected": 21.150476,
+      "refSql": "SELECT TOP 1 100.0*SUM(VENTA_NETA)/NULLIF((SELECT SUM(VENTA_NETA) FROM dbo.meta_venta_neta WITH (NOLOCK) WHERE CAST(PERIODO AS VARCHAR(6))='202401'),0) AS v\n      FROM dbo.meta_venta_neta WITH (NOLOCK) WHERE CAST(PERIODO AS VARCHAR(6))='202401' GROUP BY NOMBRE_COMPLETO ORDER BY v DESC",
+      "aiSnippet": "Encontré un total de 139 resultados. Aquí te muestro 60 resultados en pantalla.\n\n1. **JUNTA DE BENEFICENCIA DE GUAYAQUIL**: $33,431.85 (29.09%)\n2. **MEDICALCORPHV S.A.**: $8,680.00 (7.55%)\n3. **MEDIAVILLA GRANDA NANCY CECILIA**: $8,400.00 (7.31%)\n4. **HOSPITAL PEDIATRICO BACA ORTIZ**: $7,266.95 (6.32%)\n5. **SALUDCAREMEDICAL S.A.**: $6,778.62 (5.90%)\n6. **HOSPITAL DE ESPECIALIDADES TEODORO MALDONAD"
+    },
+    {
+      "id": "D02",
+      "question": "¿Antigüedad de cartera (0–30, 31–60, 61–90, +90)?",
+      "status": "PASS",
+      "detail": "≈ 7123.57 (ref 7123.57)",
+      "expected": 7123.57,
+      "refSql": "SELECT SUM(FCC_VALOR - FCC_PAGADO) AS v FROM dbo.FAC_CARTERA WITH (NOLOCK) WHERE (FCC_VALOR - FCC_PAGADO) > 0 AND DATEDIFF(day, FCC_VEND, GETDATE()) BETWEEN 0 AND 30",
+      "aiSnippet": "Aquí tienes la antigüedad de la cartera:\n\n1. **0–30 días:** \n   - Total: **16**\n   - Saldo: **$7,123.57**\n\n2. **31–60 días:** \n   - Total: **31**\n   - Saldo: **$21,996.67**\n\n3. **61–90 días:** \n   - Total: **55**\n   - Saldo: **$48,179.51**\n\n4. **Más de 90 días:** \n   - Total: **152**\n   - Saldo: **$420,199.52**\n\nEn total, hay **254** cuentas por cobrar pendientes, con un saldo total de **$497,499."
+    },
+    {
+      "id": "A09",
+      "question": "¿Cuáles son los clientes nuevos del mes?",
+      "status": "PASS",
+      "detail": "≈ 20 (ref 20)",
+      "expected": 20,
+      "refSql": "SELECT COUNT(DISTINCT RUC) AS v FROM dbo.meta_venta_neta WITH (NOLOCK)\n      WHERE CAST(PERIODO AS VARCHAR(6))='202508' AND RUC IS NOT NULL\n      AND RUC NOT IN (SELECT DISTINCT RUC FROM dbo.meta_venta_neta WITH (NOLOCK) WHERE RUC IS NOT NULL AND CAST(PERIODO AS VARCHAR(6)) < '202508')",
+      "aiSnippet": "Encontré un total de 20 clientes nuevos en el mes de agosto de 2025. Aquí te muestro los resultados:\n\n1. RUC: 0502225147 - NOMBRE: ZAMBRANO BIFARINI JORGE IDAAC\n2. RUC: 0650345234 - NOMBRE: CHACHA CHACHA MATEO SEBASTIAN\n3. RUC: 0705417103 - NOMBRE: ALVARADO RAMOS DIANA\n4. RUC: 0923705040 - NOMBRE: LLIGUIN LLIGUIN EDISON ROLANDO\n5. RUC: 0927086744 - NOMBRE: ALEJANDRO ALEJANDRO BYRON ISAIAS\n6. RUC: "
+    },
+    {
+      "id": "A03",
+      "question": "¿Cuál es el crecimiento acumulado de ventas en el año?",
+      "status": "PARTIAL",
+      "detail": "Multi-columna: {\"ytd\":1314804.08,\"ytd_ant\":1948638.74} vs IA nums 1314804.08, 1199882.82, 1051272.01, 918312.01, 746932.67",
+      "expected": null,
+      "refSql": "SELECT SUM(CASE WHEN ANIO=2025 THEN VENTA_NETA ELSE 0 END) AS ytd,\n      SUM(CASE WHEN ANIO=2024 THEN VENTA_NETA ELSE 0 END) AS ytd_ant\n      FROM dbo.meta_venta_neta WITH (NOLOCK)",
+      "aiSnippet": "Encontré un total de 8 resultados.\n\nAquí te muestro los valores acumulados de ventas en el año 2025:\n\n1. Enero 2025: **$286,687.95**\n2. Febrero 2025: **$491,037.50**\n3. Marzo 2025: **$585,468.68**\n4. Abril 2025: **$746,932.67**\n5. Mayo 2025: **$918,312.01**\n6. Junio 2025: **$1,051,272.01**\n7. Julio 2025: **$1,199,882.82**\n8. Agosto 2025: **$1,314,804.08**\n\nEl crecimiento de ventas muestra una tend"
+    },
+    {
+      "id": "B01",
+      "question": "¿Margen bruto por producto o servicio?",
+      "status": "PASS",
+      "detail": "≈ 55.65 (ref 55.071935)",
+      "expected": 55.071935,
+      "refSql": "SELECT TOP 1 100.0*SUM(UTILIDAD)/NULLIF(SUM(VENTA_NETA),0) AS v FROM dbo.meta_venta_neta WITH (NOLOCK) WHERE CAST(PERIODO AS VARCHAR(6))='202501' GROUP BY CLASIFICACION1 ORDER BY SUM(VENTA_NETA) DESC",
+      "aiSnippet": "Encontré un total de 232 resultados de productos y servicios con margen bruto calculado. Aquí te muestro 60 resultados en pantalla:\n\n1. **Código:** 4000.001-6  \n   **Descripción:** NOCOLYSE NEUTRAL (6X1L) BIODESINFECTANTE DE AREAS A BASE DE PEROXIDO DE HIDROGENO  \n   **Total Ventas:** 30,576.00  \n   **Utilidad:** 24,834.36  \n   **Margen (%):** 81.22  \n\n2. **Código:** GT032-100NA  \n   **Descripción"
+    },
+    {
+      "id": "F05",
+      "question": "¿Productos con stock bajo el mínimo?",
+      "status": "PASS",
+      "detail": "≈ 6 (ref 6)",
+      "expected": 6,
+      "refSql": "SELECT COUNT(*) AS v FROM dbo.FAC_STOCK WITH (NOLOCK) WHERE STK_MINIMO > 0 AND STK_ACTUAL < STK_MINIMO",
+      "aiSnippet": "Encontré un total de 6 resultados de productos con stock bajo el mínimo. Aquí te muestro los detalles:\n\n1. **Código:** 412SCHG2U33 — **Descripción:** MANGA DE CONTENCION 20-30MMHG, TALLA GRANDE NORMAL, UNISEX, NATURAL CLARA — **Stock Actual:** 1 — **Stock Mínimo:** 2\n2. **Código:** 151ATP1F99 — **Descripción:** MEDIA SCULPTOR 15-20MMHG, PUNTERA CERRADA, PANTIMEDIA OPACA, TALLA PEQUENA CORTA 36-38,"
+    },
+    {
+      "id": "A08",
+      "question": "¿Qué clientes han reducido sus compras respecto al período anterior?",
+      "status": "FAIL",
+      "detail": "más cercano 516.85 vs esperado 584 (Δ 11.5%)",
+      "expected": 584,
+      "refSql": "SELECT COUNT(*) AS v FROM (\n      SELECT NOMBRE_COMPLETO FROM dbo.meta_venta_neta WITH (NOLOCK)\n      GROUP BY NOMBRE_COMPLETO\n      HAVING SUM(CASE WHEN ANIO=2024 THEN VENTA_NETA ELSE 0 END) > 0\n        AND SUM(CASE WHEN ANIO=2025 THEN VENTA_NETA ELSE 0 END)\n          < SUM(CASE WHEN ANIO=2024 THEN VENTA_NETA ELSE 0 END)\n    ) x",
+      "aiSnippet": "Encontré un total de 60 resultados de clientes que han reducido sus compras en 2025 respecto a 2024. Aquí te muestro 60 resultados en pantalla:\n\n1. **CAICEDO RONQUILLO CARLOS**: 2024: **43.29**, 2025: **0**\n2. **PALCARE ECUADOR**: 2024: **232.28**, 2025: **0**\n3. **SALGADO BUENO NURY JUDITH**: 2024: **46.28**, 2025: **0**\n4. **HOSPITAL GENERAL LATACUNGA**: 2024: **6224.90**, 2025: **5175.00**\n5. *"
+    },
+    {
+      "id": "A07",
+      "question": "¿Top 10 clientes por facturación?",
+      "status": "PASS",
+      "detail": "≈ 33431.85 (ref 33431.85)",
+      "expected": 33431.85,
+      "refSql": "SELECT TOP 1 NOMBRE_COMPLETO, SUM(VENTA_NETA) AS v FROM dbo.meta_venta_neta WITH (NOLOCK) WHERE CAST(PERIODO AS VARCHAR(6))='202508' GROUP BY NOMBRE_COMPLETO ORDER BY v DESC",
+      "aiSnippet": "Encontré un total de 10 resultados. Aquí te muestro los top 10 clientes por facturación:\n\n1. JUNTA DE BENEFICENCIA DE GUAYAQUIL: **$33,431.85**\n2. MEDICALCORPHV S.A.: **$8,680.00**\n3. MEDIAVILLA GRANDA NANCY CECILIA: **$8,400.00**\n4. HOSPITAL PEDIATRICO BACA ORTIZ: **$7,266.95**\n5. SALUDCAREMEDICAL S.A.: **$6,778.62**\n6. HOSPITAL DE ESPECIALIDADES TEODORO MALDONADO CARBO: **$5,663.52**\n7. AF ABAST"
+    },
+    {
+      "id": "C13",
+      "question": "¿Dame un resumen de los cierres de caja?",
+      "status": "FAIL",
+      "detail": "IA no devolvió cifras",
+      "expected": 0,
+      "refSql": "SELECT COUNT(*) AS v FROM dbo.FAC_CIERRE_CAJA WITH (NOLOCK) WHERE CICA_FECHA >= DATEADD(month,-1,GETDATE())",
+      "aiSnippet": "No encontré registros de cierres de caja para hoy. Puede que aún no se haya realizado ninguno o que no haya datos disponibles para la fecha."
+    },
+    {
+      "id": "H03",
+      "question": "¿Productos de alta rotación?",
+      "status": "FAIL",
+      "detail": "más cercano 300 vs esperado 276 (Δ 8.7%)",
+      "expected": 276,
+      "refSql": "SELECT COUNT(*) AS v FROM (\n      SELECT s.TBS_CODIGO FROM dbo.FAC_STOCK s WITH (NOLOCK)\n      INNER JOIN dbo.meta_venta_neta m WITH (NOLOCK) ON m.CODIGO = s.TBS_CODIGO AND m.ANIO=2025\n      WHERE s.STK_ACTUAL > 0 GROUP BY s.TBS_CODIGO HAVING SUM(m.CANTIDAD) > 100\n    ) x",
+      "aiSnippet": "Encontré un total de 10 resultados de productos de alta rotación. Aquí te muestro los resultados:\n\n1. **Código:** GT018-100 12FR  \n   **Descripción:** SONDA DE ALIMENTACION 12 FR, 40 CM  \n   **Stock:** 7  \n   **Unidades Vendidas:** 700  \n   **Rotación:** 100.00\n\n2. **Código:** MC-07212  \n   **Descripción:** SISTEMA DE SUCCION CERRADA 14FR, 72HRS, ADULTO  \n   **Stock:** 30  \n   **Unidades Vendidas:"
+    },
+    {
+      "id": "B04",
+      "question": "¿Rentabilidad por canal de ventas?",
+      "status": "PASS",
+      "detail": "≈ 50.26 (ref 51.346944)",
+      "expected": 51.346944,
+      "refSql": "SELECT TOP 1 100.0*SUM(UTILIDAD)/NULLIF(SUM(VENTA_NETA),0) AS v FROM dbo.meta_venta_neta WITH (NOLOCK) WHERE ANIO=2024 GROUP BY CLAS_CLIENTE3 ORDER BY SUM(VENTA_NETA) DESC",
+      "aiSnippet": "Encontré un total de 11 resultados. Aquí tienes el detalle de la rentabilidad por canal de ventas en 2025:\n\n1. Canal: **MAYORISTA**  \n   - Total Ventas: **$472,866.61**  \n   - Utilidad: **$255,745.49**  \n   - Margen: **54.08%**\n\n2. Canal: **MSP**  \n   - Total Ventas: **$224,872.45**  \n   - Utilidad: **$108,090.30**  \n   - Margen: **48.07%**\n\n3. Canal: **JUNTA**  \n   - Total Ventas: **$173,980.12**"
+    },
+    {
+      "id": "B02",
+      "question": "¿Margen bruto por cliente?",
+      "status": "PASS",
+      "detail": "≈ 46.88 (ref 45.587874)",
+      "expected": 45.587874,
+      "refSql": "SELECT TOP 1 100.0*SUM(UTILIDAD)/NULLIF(SUM(VENTA_NETA),0) AS v FROM dbo.meta_venta_neta WITH (NOLOCK) WHERE CAST(PERIODO AS VARCHAR(6))='202401' GROUP BY NOMBRE_COMPLETO ORDER BY SUM(VENTA_NETA) DESC",
+      "aiSnippet": "Encontré un total de 139 resultados.\n\nAquí te muestro 60 resultados en pantalla:\n\n1. **GONZALEZ CARDONA MANUEL** - Ventas: 26, Utilidad: 21.71, Margen: 83.50%\n2. **MUNOZ VILLEGAS VICTOR EDUARDO** - Ventas: 42.5, Utilidad: 34.95, Margen: 82.24%\n3. **ALVARADO RAMOS DIANA** - Ventas: 42.5, Utilidad: 34.95, Margen: 82.24%\n4. **SOLUMED** - Ventas: 15, Utilidad: 12.15, Margen: 81.00%\n5. **SIMBANA JACOME"
+    }
+  ]
+}

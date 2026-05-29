@@ -1,0 +1,741 @@
+.chatContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+
+
+.dragOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px dashed #61d8bf;
+  border-radius: 16px;
+  margin: 16px;
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.dragOverlayContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  background-color: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  color: #61d8bf;
+  transform: translateY(10px);
+  animation: slideUp 0.3s ease-out forwards;
+}
+
+.dragOverlayContent p {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.toast {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ef4444;
+  /* Rojo para error */
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  /* Pill shape */
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  z-index: 100;
+  animation: slideDownToast 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, fadeOutToast 0.5s ease-out 4.5s forwards;
+  pointer-events: none;
+  /* Que el mouse no bloquee cosas debajo */
+}
+
+@keyframes slideDownToast {
+  from {
+    top: -50px;
+    opacity: 0;
+  }
+
+  to {
+    top: 24px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutToast {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.inputForm {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 40px);
+  max-width: 800px;
+  padding: 16px 20px;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 24px;
+  left: var(--sidebar-width);
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  z-index: 10;
+  border-radius: 20px;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  transition: left 0.3s ease;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  width: 100%;
+}
+
+.fileInput {
+  display: none;
+}
+
+.filesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.attachButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid #d1d5db;
+  border-radius: 50%;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.attachButton:hover:not(:disabled) {
+  background-color: #f5f5f5;
+  border-color: #000;
+  color: #000;
+}
+
+.attachButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.filePreview {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 8px;
+  font-size: 13px;
+  max-width: fit-content;
+}
+
+.fileName {
+  flex: 1;
+  color: #0369a1;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.removeFileButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  color: #0369a1;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.removeFileButton:hover {
+  background-color: #dbeafe;
+  color: #dc2626;
+}
+
+.input {
+  flex-grow: 1;
+  min-height: 52px;
+  max-height: calc(1.5em * 3 + 32px);
+  padding: 16px 24px;
+  border-radius: 24px;
+  border: 1px solid #d1d5db;
+  font-size: 1em;
+  line-height: 1.5;
+  font-family: inherit;
+  background-color: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  resize: none;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.input:focus {
+  outline: none !important;
+  border-color: #000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+  padding: 12px 32px;
+  background-color: #61d8bf;
+  color: white;
+  border: none;
+  font-size: 1em;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.button:hover:not(:disabled) {
+  background-color: #4ecba9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(97, 216, 191, 0.3);
+}
+
+.button:disabled {
+  background-color: #d1d5db;
+  cursor: not-allowed;
+}
+
+.messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px;
+  padding-bottom: 200px;
+  /* Espacio extra para que el input fijo (hasta 3 líneas) no tape el último mensaje */
+  scroll-padding-bottom: 200px;
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+  white-space: pre-wrap;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  gap: 2px;
+}
+
+/* Contenedor de cada mensaje: ancho al contenido, no toda la pantalla */
+.messages > [data-role] {
+  width: fit-content;
+  max-width: 85%;
+  scroll-margin-top: 12px;
+}
+.messages > [data-role="user"] {
+  align-self: flex-end;
+}
+.messages > [data-role="assistant"] {
+  align-self: flex-start;
+}
+
+.userMessage,
+.assistantMessage,
+.codeMessage {
+  margin: 6px 0;
+  padding: 12px 16px;
+  border-radius: 12px;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  line-height: 1.5;
+  font-size: 14.5px;
+}
+
+.assistantMessage img {
+  max-width: 100%;
+  margin: 12px 0;
+  border-radius: 8px;
+}
+
+.userMessage {
+  color: #fff;
+  background-color: #000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.assistantMessage {
+  background-color: #f5f5f5;
+  color: #1a1a1a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.assistantMessage strong {
+  color: #000;
+  font-weight: 600;
+}
+
+.assistantMessage>*:first-child {
+  margin-top: 0;
+}
+
+.assistantMessage>*:last-child {
+  margin-bottom: 0;
+}
+
+.assistantMessage ul,
+.assistantMessage ol {
+  margin: 4px 0;
+  padding-left: 24px;
+}
+
+.assistantMessage li {
+  margin: 3px 0;
+  line-height: 1.5;
+  white-space: normal;
+}
+
+.assistantMessage li>* {
+  white-space: normal;
+}
+
+.assistantMessage li strong {
+  font-weight: 600;
+}
+
+.assistantMessage li::marker {
+  font-weight: 600;
+}
+
+.assistantMessage>*+* {
+  margin-top: 6px;
+}
+
+.assistantMessage h1,
+.assistantMessage h2,
+.assistantMessage h3 {
+  margin-top: 8px;
+  margin-bottom: 4px;
+  font-weight: 600;
+  color: #000;
+  line-height: 1.3;
+}
+
+.assistantMessage h1 {
+  font-size: 1.3em;
+}
+
+.assistantMessage h2 {
+  font-size: 1.15em;
+}
+
+.assistantMessage h3 {
+  font-size: 1.05em;
+}
+
+.assistantMessage code {
+  background-color: #e8e8e8;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+.assistantMessage pre {
+  background-color: #2d2d2d;
+  color: #f8f8f8;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 12px 0;
+}
+
+.assistantMessage pre code {
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.assistantMessage a {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+.assistantMessage a:hover {
+  color: #0052a3;
+}
+
+/* Estilos para las citas removidos - las citas se eliminan del texto */
+
+.codeMessage {
+  padding: 10px 16px;
+  background-color: #e9e9e9;
+  font-family: monospace;
+  counter-reset: line;
+}
+
+.codeMessage>div {
+  margin-top: 4px;
+}
+
+.codeMessage span {
+  color: #b8b8b8;
+  margin-right: 8px;
+}
+
+.loadingDots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 0;
+}
+
+.loadingDots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #666;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.loadingDots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loadingDots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablets */
+@media (max-width: 968px) {
+  .inputForm {
+    max-width: 700px;
+    padding: 15px;
+  }
+
+  .input {
+    font-size: 0.95rem;
+  }
+
+  .button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Móviles: font-size >= 16px evita zoom al enfocar el input (iOS/Android) y mejora el cursor */
+@media (max-width: 768px) {
+  .inputForm {
+    left: 0;
+    width: calc(100% - 24px);
+    max-width: 100%;
+    padding: 12px 15px;
+    bottom: 12px;
+  }
+
+  .input {
+    font-size: 16px;
+    padding: 12px 14px;
+    min-height: 48px;
+    max-height: calc(1.5em * 3 + 24px);
+    /* Evita zoom y desplazamiento raro del cursor en móvil */
+    transform: none;
+  }
+
+  .button {
+    padding: 10px 18px;
+    font-size: 0.875rem;
+  }
+
+  .attachButton {
+    padding: 8px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .attachButton svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .messages {
+    padding: 15px;
+    padding-bottom: 260px;
+    scroll-padding-bottom: 260px;
+    /* Espacio para input multilínea sin tapar la respuesta */
+  }
+
+  /* En móvil las burbujas no ocupan toda la pantalla: margen claro a los lados */
+  .messages > [data-role] {
+    max-width: 82%;
+  }
+
+  .userMessage,
+  .assistantMessage {
+    font-size: 0.9rem;
+    padding: 12px 16px;
+  }
+}
+
+/* Móviles pequeños - mantener 16px en input para no activar zoom */
+@media (max-width: 480px) {
+  .inputForm {
+    padding: 10px 12px;
+  }
+
+  .inputWrapper {
+    gap: 6px;
+  }
+
+  .input {
+    font-size: 16px;
+    padding: 10px 12px;
+    min-height: 44px;
+    max-height: calc(1.5em * 3 + 20px);
+  }
+
+  .button {
+    padding: 9px 15px;
+    font-size: 0.8125rem;
+  }
+
+  .attachButton {
+    padding: 6px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .messages {
+    padding: 12px;
+    padding-bottom: 280px;
+    scroll-padding-bottom: 280px;
+  }
+
+  .messages > [data-role] {
+    max-width: 80%;
+  }
+
+  .userMessage,
+  .assistantMessage {
+    font-size: 0.875rem;
+    padding: 10px 14px;
+  }
+
+  .filePreview {
+    padding: 8px 10px;
+    font-size: 0.8125rem;
+  }
+
+  .removeFileButton {
+    font-size: 1.25rem;
+  }
+}
+
+/* Bienvenida (misma estructura que CORA) */
+.welcomeContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px 140px 20px;
+  pointer-events: none;
+}
+
+.welcomeText {
+  text-align: center;
+  max-width: 650px;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.logoWrapper {
+  margin-bottom: 12px;
+}
+
+.logoImage {
+  filter: drop-shadow(0 2px 6px rgba(97, 216, 191, 0.15));
+}
+
+.assistantName {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2a2a2a;
+  margin: 0;
+  line-height: 1;
+}
+
+.assistantRole {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: 100%;
+  width: 100%;
+}
+
+.description p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 968px) {
+  .welcomeContainer {
+    padding: 30px 20px 120px 20px;
+  }
+
+  .assistantName {
+    font-size: 1.75rem;
+  }
+
+  .assistantRole {
+    font-size: 0.95rem;
+  }
+
+  .description p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcomeContainer {
+    padding: 20px 15px 100px 15px;
+  }
+
+  .logoWrapper {
+    margin-bottom: 8px;
+  }
+
+  .assistantName {
+    font-size: 1.5rem;
+  }
+
+  .assistantRole {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+
+  .description p {
+    font-size: 0.8rem;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcomeContainer {
+    padding: 15px 10px 80px 10px;
+  }
+
+  .assistantName {
+    font-size: 1.35rem;
+  }
+
+  .assistantRole {
+    font-size: 0.85rem;
+  }
+
+  .description p {
+    font-size: 0.75rem;
+  }
+}

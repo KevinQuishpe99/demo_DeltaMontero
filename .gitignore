@@ -19,14 +19,18 @@
 # misc
 .DS_Store
 *.pem
+Thumbs.db
 
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# local env files
-.env*.local
+# env / secretos (nunca subir credenciales)
+.env
+.env.*
+!.env.example
 
 # vercel
 .vercel
@@ -34,3 +38,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# logs y artefactos locales
+*.log
+migrate-pg.log
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# cursor (config local; no secretos en repo)
+.cursor/

@@ -1,0 +1,124 @@
+.userProfile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  background-color: transparent;
+  border-radius: 8px;
+  gap: 8px;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #61d8bf;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.userName {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background-color: transparent;
+  border: none;
+  border-radius: 6px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.logoutButton:hover {
+  background-color: #ffe5e5;
+  color: #dc2626;
+}
+
+.userProfileCollapsed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 0;
+  min-height: 80px;
+}
+
+.logoutIconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: transparent;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logoutIconButton:hover {
+  background-color: #ffe5e5;
+  color: #dc2626;
+  border-color: #fecaca;
+}
+
+.logoutIconButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.logoutButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.loggingOutContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  width: 100%;
+}
+
+.logoutSpinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #e5e5e5;
+  border-top-color: #61d8bf;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

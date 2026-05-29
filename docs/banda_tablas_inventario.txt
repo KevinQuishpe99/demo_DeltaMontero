@@ -1,0 +1,3 @@
+# banda.dbo — inventario de nombres de tabla (referencia)
+# Total: 1 (no implica que el agente pueda consultarlas todas; ver lib/sqlGuard.ts)
+BCO
