@@ -40,10 +40,11 @@ export function ChatPanel() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
-  const bottomRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   /** Si el usuario subió el scroll, no forzar bajar hasta que vuelva al fondo. */
   const stickToBottomRef = useRef(true);
+  const scrollRafRef = useRef<number | null>(null);
+  const touchStartYRef = useRef(0);
 
   const LINE_HEIGHT_PX = 24;
   const INPUT_MAX_LINES = 3;
@@ -83,11 +84,15 @@ export function ChatPanel() {
     return () => window.removeEventListener("newChatStarted", onNew);
   }, []);
 
-  const scrollToBottomIfPinned = useCallback(() => {
+  const scheduleScrollToBottom = useCallback(() => {
     if (!stickToBottomRef.current) return;
-    const el = messagesContainerRef.current;
-    if (!el) return;
-    el.scrollTop = el.scrollHeight;
+    if (scrollRafRef.current != null) return;
+    scrollRafRef.current = requestAnimationFrame(() => {
+      scrollRafRef.current = null;
+      const el = messagesContainerRef.current;
+      if (!el || !stickToBottomRef.current) return;
+      el.scrollTop = el.scrollHeight;
+    });
   }, []);
 
   const hasMessages = messages.length > 0;
@@ -95,12 +100,39 @@ export function ChatPanel() {
   useEffect(() => {
     const el = messagesContainerRef.current;
     if (!el) return;
-    const onScroll = () => {
+
+    const syncPinned = () => {
       const distance = el.scrollHeight - el.scrollTop - el.clientHeight;
-      stickToBottomRef.current = distance < 96;
+      stickToBottomRef.current = distance < 48;
     };
-    el.addEventListener("scroll", onScroll, { passive: true });
-    return () => el.removeEventListener("scroll", onScroll);
+
+    const unpin = () => {
+      stickToBottomRef.current = false;
+    };
+
+    const onWheel = (e: WheelEvent) => {
+      if (e.deltaY < 0) unpin();
+    };
+
+    const onTouchStart = (e: TouchEvent) => {
+      touchStartYRef.current = e.touches[0]?.clientY ?? 0;
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      const y = e.touches[0]?.clientY ?? 0;
+      if (y - touchStartYRef.current > 8) unpin();
+    };
+
+    el.addEventListener("scroll", syncPinned, { passive: true });
+    el.addEventListener("wheel", onWheel, { passive: true });
+    el.addEventListener("touchstart", onTouchStart, { passive: true });
+    el.addEventListener("touchmove", onTouchMove, { passive: true });
+    return () => {
+      el.removeEventListener("scroll", syncPinned);
+      el.removeEventListener("wheel", onWheel);
+      el.removeEventListener("touchstart", onTouchStart);
+      el.removeEventListener("touchmove", onTouchMove);
+    };
   }, [hasMessages]);
 
   const lastAssistantContent =
@@ -112,8 +144,8 @@ export function ChatPanel() {
     loading && !visibleAnswerText(lastAssistantContent);
 
   useEffect(() => {
-    if (loading) scrollToBottomIfPinned();
-  }, [messages, loading, scrollToBottomIfPinned]);
+    if (loading && stickToBottomRef.current) scheduleScrollToBottom();
+  }, [messages, loading, scheduleScrollToBottom]);
 
   useEffect(() => {
     syncTextareaHeight();
@@ -193,11 +225,11 @@ export function ChatPanel() {
         }
         acc += decoder.decode(value, { stream: true });
         setMessages([...history, { role: "assistant", content: acc }]);
-        scrollToBottomIfPinned();
+        scheduleScrollToBottom();
       }
 
       if (chatGenerationRef.current === generationAtSend) {
-        scrollToBottomIfPinned();
+        scheduleScrollToBottom();
       }
     } catch (err) {
       if (err instanceof DOMException && err.name === "AbortError") {
@@ -286,7 +318,6 @@ export function ChatPanel() {
               <div className={styles.assistantMessage}>{error}</div>
             </div>
           )}
-          <div ref={bottomRef} />
         </div>
       )}
 
