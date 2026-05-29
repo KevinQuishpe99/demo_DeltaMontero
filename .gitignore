@@ -35,6 +35,10 @@ pnpm-debug.log*
 # vercel
 .vercel
 
+# reportes de validación local
+validate-prod-kevin-report.json
+validate-ia-report.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
