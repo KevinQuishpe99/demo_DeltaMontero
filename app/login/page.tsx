@@ -31,7 +31,7 @@ export default function LoginPage() {
 
   useEffect(() => {
     let cancelled = false;
-    fetch("/api/auth/session")
+    fetch("/api/auth/session", { credentials: "include" })
       .then((r) => r.json())
       .then((data: SessionPayload) => {
         if (!cancelled) {
@@ -62,6 +62,7 @@ export default function LoginPage() {
       const res = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: JSON.stringify({ username, password }),
       });
       const data = (await res.json()) as { error?: string };
@@ -69,7 +70,9 @@ export default function LoginPage() {
         setError(data.error ?? "No se pudo iniciar sesión.");
         return;
       }
-      router.replace("/");
+      // Recarga completa para que middleware reciba la cookie recién creada.
+      window.location.assign("/");
+      return;
     } catch {
       setError("Error de red. Intenta de nuevo.");
     } finally {

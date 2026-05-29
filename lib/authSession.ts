@@ -4,10 +4,23 @@ export const AUTH_COOKIE_NAME = "cora_auth";
 
 const SESSION_PAYLOAD = "cora_session_v1";
 
+/** Lectura dinámica para que middleware (Edge) use env en runtime, no en build. */
+function readEnv(name: string): string | undefined {
+  const raw = process.env[name]?.trim();
+  if (!raw) return undefined;
+  if (
+    (raw.startsWith('"') && raw.endsWith('"')) ||
+    (raw.startsWith("'") && raw.endsWith("'"))
+  ) {
+    return raw.slice(1, -1);
+  }
+  return raw;
+}
+
 function sessionSecret(): string {
   return (
-    process.env.AUTH_SESSION_SECRET?.trim() ||
-    process.env.DB_PASSWORD?.trim() ||
+    readEnv("AUTH_SESSION_SECRET") ||
+    readEnv("DB_PASSWORD") ||
     "deltamontero-dev-session"
   );
 }
@@ -37,10 +50,10 @@ async function hmacSha256Hex(secret: string, message: string): Promise<string> {
     .join("");
 }
 
-/** Credenciales desde AUTH_USER / AUTH_PASSWORD en .env. */
+/** Credenciales desde AUTH_USER / AUTH_PASSWORD en .env / Vercel. */
 export function getAuthCredentials(): { user: string; password: string } {
-  const user = process.env.AUTH_USER?.trim();
-  const password = process.env.AUTH_PASSWORD;
+  const user = readEnv("AUTH_USER");
+  const password = readEnv("AUTH_PASSWORD");
   return {
     user: (user || "cora").toLowerCase(),
     password: password ?? "CoraDemo2024!",
