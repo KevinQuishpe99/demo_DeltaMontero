@@ -6,7 +6,8 @@ import {
 } from "@/lib/biChatRunner";
 
 export const runtime = "nodejs";
-export const maxDuration = 120;
+/** Vercel Pro: hasta 300s; consultas BI complejas (top 10 crecimiento) pueden tardar ~2 min. */
+export const maxDuration = 300;
 
 /** Endpoint del chat UI (prioriza velocidad; sync es opcional en /api/bi). */
 export async function POST(req: NextRequest) {

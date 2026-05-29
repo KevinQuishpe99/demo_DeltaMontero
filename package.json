@@ -19,6 +19,7 @@
     "test:audit-area-bc": "node scripts/audit-area-bc.mjs",
     "test:data-reconcile": "node scripts/reconcile-bi-banda.mjs",
     "test:pg-connection": "node scripts/test-pg-connection.mjs",
+    "test:prod-kevin": "node scripts/test-prod-kevin-preguntas.mjs",
     "gen:preguntas-md": "node scripts/gen-preguntas-md.mjs",
     "deploy:views": "node scripts/deploy-views.mjs",
     "odoo:migrate-partners": "node scripts/migrate-odoo-partners.mjs",

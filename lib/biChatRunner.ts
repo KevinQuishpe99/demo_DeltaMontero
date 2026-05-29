@@ -33,6 +33,7 @@ import {
   V_METADATA_SISTEMA_QUERY,
 } from "@/lib/metadataSession";
 import { BI_RESPONSE_QUALITY_APPEND } from "@/lib/biResponseRules";
+import { runPlaybookAnswer } from "@/lib/biPlaybook";
 import {
   AssistantOutputSanitizer,
   stripAssistantForbiddenPhrases,
@@ -462,8 +463,15 @@ export function createBiAgentReadableStream(options: {
     async start(controller) {
       const push = (s: string) => controller.enqueue(enc.encode(s));
 
+      const incoming = options.messages;
+      const incomingUserText =
+        [...incoming]
+          .reverse()
+          .find((m) => m.role === "user" && typeof m.content === "string")
+          ?.content?.toString() ?? "";
+
       try {
-        const { messages: incoming, syncFirst, sessionId } = options;
+        const { syncFirst, sessionId } = options;
         if (!incoming.length) {
           push("Error: messages requerido.");
           controller.close();
@@ -502,14 +510,17 @@ export function createBiAgentReadableStream(options: {
         });
 
         // 2) Sin datos para «mes actual»/período fuera de cobertura → explicar (no SQL ni cifras de 2025).
-        const lastIncomingUser = [...incoming]
-          .reverse()
-          .find((m) => m.role === "user");
-        const lastIncomingUserText =
-          typeof lastIncomingUser?.content === "string"
-            ? lastIncomingUser.content
-            : "";
-        const askKind = userAsksMesActualOrHoy(lastIncomingUserText);
+        const playbookAnswer = await runPlaybookAnswer(incomingUserText).catch(
+          () => null
+        );
+        if (playbookAnswer) {
+          biLog("playbook_fast_path", { chars: playbookAnswer.length });
+          push(playbookAnswer);
+          controller.close();
+          return;
+        }
+
+        const askKind = userAsksMesActualOrHoy(incomingUserText);
 
         if (
           askKind === "mes" &&
@@ -538,7 +549,7 @@ export function createBiAgentReadableStream(options: {
           return;
         }
 
-        const requestedYears = extractRequestedYears(lastIncomingUserText);
+        const requestedYears = extractRequestedYears(incomingUserText);
         const outsideYears = yearsOutsideMetadataCoverage(
           meta.rows,
           requestedYears
@@ -759,7 +770,14 @@ export function createBiAgentReadableStream(options: {
           message: msg,
           sessionId: options.sessionId,
         });
-        push(`\n\nError: ${msg}`);
+        const fallback = await runPlaybookAnswer(incomingUserText).catch(() => null);
+        if (fallback) {
+          push(fallback);
+        } else {
+          push(
+            "\n\nNo pude completar el análisis en este intento. Reformula la pregunta o intenta de nuevo en unos segundos."
+          );
+        }
         controller.close();
       }
     },
