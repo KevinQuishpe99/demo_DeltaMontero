@@ -42,6 +42,8 @@ export function ChatPanel() {
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  /** Si el usuario subió el scroll, no forzar bajar hasta que vuelva al fondo. */
+  const stickToBottomRef = useRef(true);
 
   const LINE_HEIGHT_PX = 24;
   const INPUT_MAX_LINES = 3;
@@ -81,11 +83,25 @@ export function ChatPanel() {
     return () => window.removeEventListener("newChatStarted", onNew);
   }, []);
 
-  const scrollToBottom = useCallback(() => {
+  const scrollToBottomIfPinned = useCallback(() => {
+    if (!stickToBottomRef.current) return;
     const el = messagesContainerRef.current;
-    if (el) el.scrollTop = el.scrollHeight;
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (!el) return;
+    el.scrollTop = el.scrollHeight;
   }, []);
+
+  const hasMessages = messages.length > 0;
+
+  useEffect(() => {
+    const el = messagesContainerRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      const distance = el.scrollHeight - el.scrollTop - el.clientHeight;
+      stickToBottomRef.current = distance < 96;
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, [hasMessages]);
 
   const lastAssistantContent =
     messages[messages.length - 1]?.role === "assistant"
@@ -96,8 +112,8 @@ export function ChatPanel() {
     loading && !visibleAnswerText(lastAssistantContent);
 
   useEffect(() => {
-    if (loading) scrollToBottom();
-  }, [messages, loading, scrollToBottom]);
+    if (loading) scrollToBottomIfPinned();
+  }, [messages, loading, scrollToBottomIfPinned]);
 
   useEffect(() => {
     syncTextareaHeight();
@@ -123,6 +139,7 @@ export function ChatPanel() {
     const history = [...messages, nextUser];
     setMessages([...history, { role: "assistant", content: "" }]);
     setLoading(true);
+    stickToBottomRef.current = true;
 
     fetchAbortRef.current?.abort();
     const ac = new AbortController();
@@ -176,11 +193,11 @@ export function ChatPanel() {
         }
         acc += decoder.decode(value, { stream: true });
         setMessages([...history, { role: "assistant", content: acc }]);
-        scrollToBottom();
+        scrollToBottomIfPinned();
       }
 
       if (chatGenerationRef.current === generationAtSend) {
-        scrollToBottom();
+        scrollToBottomIfPinned();
       }
     } catch (err) {
       if (err instanceof DOMException && err.name === "AbortError") {

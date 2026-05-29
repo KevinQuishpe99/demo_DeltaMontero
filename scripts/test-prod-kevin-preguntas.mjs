@@ -119,7 +119,9 @@ async function main() {
         !badPhrase &&
         hasNumbers(text) &&
         text.trim().length > 80 &&
-        !/^Error:/m.test(text);
+        !/^Error:/m.test(text) &&
+        (id !== "Q3" || text.length > 800) &&
+        (id !== "Q6" || /CRECIERON[\s\S]*\| [A-Z0-9]/i.test(text));
       const chart = hasChart(text);
       results.push({
         id,

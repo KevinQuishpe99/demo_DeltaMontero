@@ -42,6 +42,10 @@ function rowStr(row: Record<string, unknown>, key: string): string {
   return String(v ?? "").trim();
 }
 
+function rowTipo(row: Record<string, unknown>): string {
+  return rowStr(row, "TIPO").toUpperCase();
+}
+
 function chartBlock(
   chartType: "bar" | "line",
   data: Record<string, unknown>[],
@@ -323,8 +327,8 @@ ${chart}`;
 }
 
 function formatQ6(rows: Record<string, unknown>[]): string {
-  const up = rows.filter((r) => rowStr(r, "TIPO") === "CRECIERON");
-  const down = rows.filter((r) => rowStr(r, "TIPO") === "DECRECIERON");
+  const up = rows.filter((r) => rowTipo(r) === "CRECIERON");
+  const down = rows.filter((r) => rowTipo(r) === "DECRECIERON");
   const fmtRow = (r: Record<string, unknown>) => {
     const v24 = rowNum(r, "V2024");
     const v25 = rowNum(r, "V2025");

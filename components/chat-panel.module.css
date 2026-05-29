@@ -303,6 +303,14 @@
 }
 .messages > [data-role="assistant"] {
   align-self: flex-start;
+  max-width: min(100%, 720px);
+}
+
+/* Tablas y gráficos CORA ocupan ancho útil del chat */
+.messages > [data-role="assistant"]:has(table),
+.messages > [data-role="assistant"]:has(.my-5) {
+  width: 100%;
+  max-width: 100%;
 }
 
 .userMessage,
