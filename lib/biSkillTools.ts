@@ -1,6 +1,5 @@
 import type { ChatCompletionTool } from "openai/resources/chat/completions";
 import type { SkillGate } from "@/lib/sqlGuard";
-import { BANDAVONI_ERP_TABLES } from "@/lib/bandavanoniDbCatalog";
 
 const ERP_COMERCIAL = [
   "FAC_FACTURAS",

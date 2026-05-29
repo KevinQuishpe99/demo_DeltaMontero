@@ -18,7 +18,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import type { TooltipProps } from "recharts";
+import type { TooltipPayload } from "recharts";
 import {
   BarChart3,
   LayoutList,
@@ -68,7 +68,13 @@ function formatTooltipValue(value: unknown): string {
   return value.toLocaleString("es-EC", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
-function ChartTooltip({ active, payload, label }: TooltipProps<number, string>) {
+type ChartTooltipProps = {
+  active?: boolean;
+  payload?: TooltipPayload;
+  label?: string | number;
+};
+
+function ChartTooltip({ active, payload, label }: ChartTooltipProps) {
   if (!active || !payload?.length) return null;
   return (
     <div className="min-w-[10rem] rounded-xl border border-slate-200/90 bg-white/95 px-3 py-2.5 shadow-lg shadow-slate-200/60 backdrop-blur-sm">
@@ -167,7 +173,11 @@ export function CoraChart({ spec: rawSpec }: { spec: CoraChartSpec }) {
         tickFormatter={(v) => (typeof v === "number" ? formatAxisValue(v) : "")}
         width={56}
       />
-      <Tooltip content={<ChartTooltip />} />
+      <Tooltip
+        content={(props) => (
+          <ChartTooltip active={props.active} payload={props.payload} label={props.label} />
+        )}
+      />
       {legend}
     </>
   );
@@ -232,7 +242,12 @@ export function CoraChart({ spec: rawSpec }: { spec: CoraChartSpec }) {
           axisLine={false}
           tickLine={false}
         />
-        <Tooltip content={<ChartTooltip />} cursor={{ fill: "rgba(5, 150, 105, 0.08)" }} />
+        <Tooltip
+          content={(props) => (
+            <ChartTooltip active={props.active} payload={props.payload} label={props.label} />
+          )}
+          cursor={{ fill: "rgba(5, 150, 105, 0.08)" }}
+        />
         {legend}
         {renderSeriesBars(spec.series.length === 1)}
       </BarChart>
@@ -322,7 +337,11 @@ export function CoraChart({ spec: rawSpec }: { spec: CoraChartSpec }) {
           />
         ))}
       </Pie>
-      <Tooltip content={<ChartTooltip />} />
+      <Tooltip
+        content={(props) => (
+          <ChartTooltip active={props.active} payload={props.payload} label={props.label} />
+        )}
+      />
       {legend}
     </PieChart>
   );
