@@ -57,15 +57,15 @@ export function translateMssqlToPostgres(sql: string): string {
   s = s.replace(/\bLEN\s*\(/gi, "LENGTH(");
   s = s.replace(/\bQUARTER\s*\(\s*([A-Za-z_][A-Za-z0-9_.]*)\s*\)/gi, "EXTRACT(QUARTER FROM $1)");
 
-  const topMatch = /\bSELECT\s+TOP\s+(\d+)\b/i.exec(s);
-  if (topMatch) {
-    const n = topMatch[1];
-    s = s.replace(/\bSELECT\s+TOP\s+\d+\b/i, "SELECT");
-    if (!/\bLIMIT\s+\d+\b/i.test(s)) {
-      s = s.replace(/;+\s*$/g, "");
-      s = `${s.trimEnd()} LIMIT ${n}`;
+  s = s.replace(
+    /\bSELECT\s+TOP\s+(\d+)\b([\s\S]*?)(?=\bSELECT\b|\bUNION\b|\bORDER\s+BY\b|;|$)/gi,
+    (_full, n: string, rest: string) => {
+      const body = rest.trim();
+      if (/\bLIMIT\s+\d+\b/i.test(body)) return `SELECT ${body}`;
+      const withoutSemi = body.replace(/;+\s*$/g, "");
+      return `SELECT ${withoutSemi} LIMIT ${n}`;
     }
-  }
+  );
 
   return s.trim();
 }
